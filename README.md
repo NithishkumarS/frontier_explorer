@@ -12,7 +12,7 @@ This Project uses turtlebot to autonomously explore and reconstructing the unkno
 
 ## DISCLAIMER
 
-'''
+```
 
 BSD 3-Clause License
 
@@ -44,5 +44,48 @@ CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY,
 OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
-'''
+```
+
+
+## Dependencies
+
+The following packages are needed to run this program:
+* Ubuntu Xenial 16.04
+* ROS Kinetic
+
+## Documentation
+
+This project follows SIP. The link for the document can be found out [here](https://docs.google.com/spreadsheets/d/1-KtADCIqD6HAsYGd68oA5P-hs-cmr5l4iTkNGygmUoM/edit?usp=sharing).
+
+The documentation for sprint notes is can be found [here](https://docs.google.com/document/d/1QWXToDZXNtXEsLOP8cRoNLw7FY7OOFWPk1sTGDPnR8Q/edit?usp=sharing).
+
+
+## Instructions to create catkin workspace
+
+To create catkin workspace, open terminal and type the following commands
+```
+mkdir -p ~/catkin_ws/src
+cd ~/catkin_ws/
+catkin_make
+```
+
+
+## Instructions to setup catkin workspace
+
+Once catkin workspace is created, open terminal and type the following commands to clone the repository.
+
+``` 
+cd ~/catkin_ws/src/
+git clone --recursive https://github.com/nantha007/frontierExplorer.git
+```
+
+Once repository is cloned, type the following commands to setup the repository.
+
+```
+cd ~/catkin_ws/
+source devel/setup.bash
+catkin_make
+```
+
+
 
