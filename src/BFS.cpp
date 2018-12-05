@@ -47,5 +47,37 @@ void BFS::neighbourList(const std::vector<std::vector<int>>& frontierVector ,
   }
 }
 
+std::queue<std::vector<int>> BFS::computeBFS(const std::queue<std::vector<int> >& frontierQueue, std::vector<int> start) {
+  int xPos = start[0];
+  int yPos = start[1];
+  std::queue<std::vector<int>> frontier,temp,list;
+  std::vector<std::vector<int>> tempVector;
+  std::vector<int> v, i, t;
+  temp = frontierQueue;
+
+  while(!temp.empty()) {
+      t = temp.front();
+      tempVector.push_back(t);
+      temp.pop();
+  }
+  pQueue.push(start);
+
+  while (!pQueue.empty()){
+               v = pQueue.front();
+               pQueue.pop();
+               frontier.push(v);
+               neighbourList(tempVector,v,list);
+               while(!list.empty()){
+                   i = list.front();
+                   list.pop();
+                   if (explored[i[0]][i[1]] == 0) {
+                     explored[i[0]][i[1]] = 1;
+                     distance[i[0]][i[1]] = distance[v[0]][v[1]] + 1;
+                     pQueue.push(i);
+                   }
+               }
+  }
+  return frontier;
+}
 
 BFS::~BFS() {}
