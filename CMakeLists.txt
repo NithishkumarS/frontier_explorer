@@ -2,7 +2,7 @@ cmake_minimum_required(VERSION 2.8.3)
 project(frontierExplorer)
 
 ## Compile as C++11, supported in ROS Kinetic and newer
-# add_compile_options(-std=c++11)
+add_compile_options(-std=c++11)
 
 ## Find catkin macros and libraries
 ## if COMPONENTS list like find_package(catkin REQUIRED COMPONENTS xyz)
@@ -11,6 +11,9 @@ find_package(catkin REQUIRED COMPONENTS
   roscpp
   rospy
   std_msgs
+  nav_msgs
+  tf
+  geometry_msgs
 )
 
 ## System dependencies are found with CMake's conventions
@@ -116,8 +119,8 @@ catkin_package(
 ## Specify additional locations of header files
 ## Your package locations should be listed before other locations
 include_directories(
-# include
-  ${catkin_INCLUDE_DIRS}
+ include
+  ${catkin_INCLUDE_DIRS} ../include/map.hpp
 )
 
 ## Declare a C++ library
@@ -197,3 +200,31 @@ include_directories(
 
 ## Add folders to be run by python nosetests
 # catkin_add_nosetests(test)
+
+add_executable(frontierExplorer src/BFS.cpp src/explore.cpp src/map.cpp src/main.cpp)
+target_link_libraries(frontierExplorer ${catkin_LIBRARIES})
+
+
+
+
+
+if(CATKIN_ENABLE_TESTING)
+  find_package(rostest REQUIRED)
+
+  add_rostest_gtest(
+  frontierExplorerTest
+  test/testMapGen.cpp
+  test/main.cpp
+  test/testBFS.cpp
+  )
+  target_link_libraries(
+  frontierExplorerTest
+  ${catkin_LIBRARIES}
+  )
+  add_dependencies(
+  frontierExplorerTest
+  ${PROJECT_NAME}_generate_messages_cpp
+  ${catkin_EXPORTED_TARGETS}
+  )
+endif()
+
