@@ -105,3 +105,24 @@ TEST(nearest, checkReturnValue) {
   EXPECT_EQ(tempVec,output);
 }
 
+TEST(computeFrontierCentroid, checkCentroidValue) {
+  // Creating a Map Object
+  map mapObj;
+  // creating a Queue to send as input to computeFrontierCentroid function
+  std::queue<std::vector<int>> frontierQueue;
+  // Creating a temporary vector
+  std::vector<int> tempVec;
+  // adding the point (2,2) to the queue
+  tempVec.push_back(2);
+  tempVec.push_back(2);
+  frontierQueue.push(tempVec);
+  tempVec.clear();
+  // adding the point (0,0) to the queue
+  tempVec.push_back(0);
+  tempVec.push_back(0);
+  frontierQueue.push(tempVec);
+  tempVec.clear();
+  // Calling the function computeFrontierCentroid
+  tempVec = mapObj.computeFrontierCentroid(frontierQueue);
+}
+
