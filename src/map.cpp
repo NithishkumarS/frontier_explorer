@@ -102,4 +102,26 @@ bool map::checkNeighbour(int xPoint, int yPoint, int mode) {
   }
 }
 
+
+std::vector<int> map::nearest(const std::queue<std::vector<int>>& q, int centroidx, int centroidy) {
+  std::queue<std::vector<int>> tempQ;
+    tempQ = q;
+    int small = 0;
+    int dist = 0;
+    std::vector<int> centroid,v;
+    int flag = 1;
+    while(!tempQ.empty()) {
+        v=(tempQ.front());
+      dist = sqrt((v[0] - centroidx)^2 + (v[1] - centroidy)^2);
+      if (flag == 1){small = dist;
+        flag++;}
+      if (small > dist ) {
+      centroid = tempQ.front();
+      small = dist;
+        }
+        tempQ.pop();
+    }
+    return centroid;
+}
+
 map::~map() {}
