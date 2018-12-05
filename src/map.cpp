@@ -150,4 +150,45 @@ std::vector<int> map::computeFrontierCentroid(const std::queue<std::vector<int>>
 }
 
 
+void map::frontierSearch(int height, int width){
+  BFS bfsObj(height, width);
+  std::vector < int >tempVec;
+  std::vector<std::vector<int>> map;
+  map = grid;
+  std::queue < std::vector < int >> frontierQueue, tempQueue, tempFrontierQueue;
+  std::vector < std::vector < int >>vec (height, std::vector < int >(width, 1));
+  int xPoint, yPoint;
+  // Creating a queue for unknown points in the grid
+for (auto & i:vec)
+    {
+      yPoint = 0;
+    for (auto & j:i)
+  {
+    if (j == -1 && checkNeighbour(xPoint,yPoint,0))
+      {
+        tempVec.push_back (yPoint);
+        tempVec.push_back (xPoint);
+        frontierQueue.push (tempVec);
+        tempVec.clear();
+      }
+    yPoint = yPoint + 1;
+  }
+      xPoint = xPoint + 1;
+    }
+   xPoint = 0;
+   yPoint = 0;
+  tempQueue = frontierQueue;
+  // frontier centroid
+  while(!tempQueue.empty()){
+      tempVec = tempQueue.front();
+      tempQueue.pop();
+      tempFrontierQueue = bfsObj.computeBFS(frontierQueue, tempVec);
+      centroidQueue.push(computeFrontierCentroid(tempFrontierQueue));
+      tempVec.pop_back();
+      while(!tempFrontierQueue.empty()) {
+        tempFrontierQueue.pop();
+      }
+  }
+}
+
 map::~map() {}
