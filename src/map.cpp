@@ -79,4 +79,27 @@ int map::getCentroidSize(){
   return centroidQueue.size();
 }
 
+bool map::checkNeighbour(int xPoint, int yPoint, int mode) {
+  std::vector< std::vector <int> > neighbourPoints;
+  std::vector<int> tempVec;
+  int move[3] = {1, -1 ,0};
+  for (auto & x : move) {
+      for (auto & y : move) {
+      if ( y!=0 && x!=0 ){
+        if(grid[xPoint+x][yPoint+y] == mode) {
+          tempVec.push_back(yPoint+y);
+          tempVec.push_back(xPoint+x);
+          neighbourPoints.push_back(tempVec);
+          tempVec.clear();
+        }
+      }
+      }
+  }
+  if (neighbourPoints.empty()){
+    return false;
+  } else {
+    return true;
+  }
+}
+
 map::~map() {}
