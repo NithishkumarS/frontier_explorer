@@ -64,4 +64,79 @@ void explore::findObstacleFreeNeighbours(std::vector<int> v , std::queue<std::ve
    }
 }
 
+bool explore::computeShortestPath( std::vector<int> start, std::vector<int> End, std::vector< std::vector<int> >& path, map& obj) {
+
+ int goalFound = 0;
+
+ std::vector < std::vector <std::vector<int> > > parent;
+ std::queue< std::vector<int> > pQueue, list;
+ std::vector < std::vector <int> > explored;
+ std::vector<int> v, i, temp;
+
+ int rows = obj.returnRows();
+ int cols = obj.returnCols();
+
+ parent.resize(rows);
+ for (auto& i : parent){
+     i.resize(cols);
+     for (auto& j:i){
+         j.resize(2);
+         for(auto& k:j )
+              k =0;
+    }
+ }
+
+ explored.resize(rows);
+ for (auto& i : explored){
+     i.resize(cols);
+     for(auto& j :i)
+        j =0;
+ }
+ pQueue.push(start);
+
+ while (!pQueue.empty()){
+        v = pQueue.front();
+        pQueue.pop();
+        findObstacleFreeNeighbours(v, list, obj);
+
+        while(!list.empty()){
+            i = list.front();
+            list.pop();
+            if (explored[i[0]][i[1]] == 0) {
+                explored[i[0]][i[1]] = 1;
+                parent[i[0]][i[1]] = v;
+                pQueue.push(i);
+                if( End[0] == i[0] && End[1] == i[1]) {  //if its the goal point
+                 goalFound =1;
+                }
+            }
+        }
+  }
+
+  if(goalFound == 1) {
+
+    path.push_back(End);
+    temp = End;
+    while(temp!=start) {
+    temp = parent[temp[0]][temp[1]];
+    path.push_back(temp);
+    }
+    goalFound = 0;
+    return true;
+  }
+  return false;
+}
+
+
+void explore::pathSearch(std::vector<int> start, std::vector<int> end, map& obj) {
+  bool check;
+  std::vector <std::vector<int>> path;
+  check = computeShortestPath(start, end, path, obj);
+}
+
+void explore::navigate(){
+void pathToPose();
+void generateVelocityCommands();
+}
+
 explore::~explore() {}
