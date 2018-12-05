@@ -50,4 +50,33 @@ void map::mapcallback(const nav_msgs::OccupancyGrid& msg) {
   ROS_INFO("checkpoint- mapcallback");
 }
 
+void map::getOccupancyGrid() {
+ ROS_INFO("Checkpoint4");
+ ROS_INFO("%d",grid.size());
+ //std::cout << "The map";
+ //ROS_INFO("%d",grid[0][0]);
+ for(auto& i:grid) {
+   for( auto& j:i){
+     ROS_INFO("Checkpoint5");
+     ROS_INFO("%d", j);
+   }
+ ROS_INFO("\n");
+ }
+
+}
+
+int map::getGridValue(int x, int y) {
+  return grid[x][y];
+}
+
+int map::returnRows(){
+  return rows;
+}
+int map::returnCols() {
+  return cols;
+}
+int map::getCentroidSize(){
+  return centroidQueue.size();
+}
+
 map::~map() {}
