@@ -61,3 +61,20 @@ ros::spinOnce();
 // if not this test case is passed
 EXPECT_EQ(1, output);
 }
+
+TEST(frontierSearch, CheckFrontierSearch) {
+// testing for 3x3 occupancy grid
+int height  = 4;
+int width = 4;
+//creating a MAP object
+map mapObj;
+mapObj.frontierSearch(height, width);
+EXPECT_EQ(2, mapObj.getCentroidSize());
+}
+
+TEST(checkNeighbour, CheckFrontierSearch) {
+//creating a Map objects
+map mapObj;
+EXPECT_EQ(false, mapObj.checkNeighbour(3,0,0));
+}
+
