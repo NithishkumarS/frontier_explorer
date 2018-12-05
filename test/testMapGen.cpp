@@ -78,3 +78,30 @@ map mapObj;
 EXPECT_EQ(false, mapObj.checkNeighbour(3,0,0));
 }
 
+
+TEST(nearest, checkReturnValue) {
+  // Creating the map object
+  map mapObj;
+  // creating input parameters for nearest function
+  int x = 0;
+  int y = 0;
+  std::queue<std::vector<int>> qList;
+  // Creating a temporary vector
+  std::vector<int> tempVec;
+  // Creating vector to get output from nearest function
+  std::vector<int> output;
+  // adding the point (2,2) to the queue
+  tempVec.push_back(2);
+  tempVec.push_back(2);
+  qList.push(tempVec);
+  tempVec.clear();
+  // adding the point (1,1) to the queue
+  tempVec.push_back(1);
+  tempVec.push_back(1);
+  qList.push(tempVec);
+  // calling the nearest function and storing it in a queue
+  output = mapObj.nearest(qList, x, y);
+  // the values should be (1,1) as it is nearer to (0,0) than (2,2)
+  EXPECT_EQ(tempVec,output);
+}
+
