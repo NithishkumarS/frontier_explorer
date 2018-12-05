@@ -124,4 +124,30 @@ std::vector<int> map::nearest(const std::queue<std::vector<int>>& q, int centroi
     return centroid;
 }
 
+std::vector<int> map::computeFrontierCentroid(const std::queue<std::vector<int>>& q){
+    std::vector<int> v, output;
+    std::queue<std::vector<int>> tempQ;
+    tempQ = q;
+    int centroidx =0 , centroidy=0;
+    int count=0;
+    int xpoints =0 , ypoints =0;
+    while(!tempQ.empty()){
+        v=(tempQ.front());
+        ROS_INFO(" %d  %d \n",v[0],v[1]);
+        tempQ.pop();
+        xpoints = xpoints + v[0 ];
+        ypoints = ypoints + v[1];
+        ROS_INFO(" %d \n",v.size());
+        count++;
+    }
+    ROS_INFO(" %d \n",xpoints/count);
+    ROS_INFO(" %d  %d \n",ypoints/count);
+    centroidx = xpoints/count;
+    centroidy = ypoints/count;
+
+    std::vector<int> centroid =  nearest(q, centroidx, centroidy);
+    return centroid;
+}
+
+
 map::~map() {}
