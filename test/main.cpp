@@ -43,7 +43,7 @@
 #include <gtest/gtest.h>
 #include <ros/ros.h>
 int main(int argc, char **argv) {
-  ros::init(argc, argv, "Get_Map_Node");
+  ros::init(argc, argv, "testfrontierExplorer");
   testing::InitGoogleTest(&argc, argv);
   return RUN_ALL_TESTS();
 }
