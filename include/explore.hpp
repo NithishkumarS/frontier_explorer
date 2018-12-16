@@ -32,24 +32,83 @@
 
 /**@file explore.hpp
  *
- * @brief To declare a class which explores the map
+ * @brief a class to explores the map
  *
  * @driver Nantha Kumar Sunder
  * @navigator Nithish Sanjeev Kumar
  * @copyright 2018 , Nantha Kumar Sunder, Nithish Sanjeev Kumar All rights reserved
 
  */
+#pragma once
+#include <queue>
+#include <vector>
 #include "map.hpp"
 
+/**
+ *  @brief Class to implement the BFS
+ *
+ *  @param path vector to store the path
+ *
+ *  @return None
+ */
 class explore {
  private:
-  std::queue <std::vector<int>> path;
+  // vector to store the path
+  std::vector<std::vector<int>> path;
 
  public:
+  /**
+   *  @brief class constructor
+   *
+   *  @return None
+   */
   explore();
+  /**
+   *  @brief pathSearch to find the path to the goal
+   *
+   *  @param start contains the start point for the path
+   *  @param end contains the end point for the path
+   *  @param map object to get rows and columns
+   *
+   *  @return None
+   */
   void pathSearch(std::vector<int>, std::vector<int>, map&);
-  bool computeShortestPath( std::vector<int> , std::vector<int> , std::vector< std::vector<int> >& , map& );
-  void findObstacleFreeNeighbours(std::vector<int>  , std::queue<std::vector<int> >& , map& );
-  void navigate();
+  /**
+   *  @brief function to compute the shortest path using BFS
+   *
+   *  @param start vector contains the start point for the path
+   *  @param end vector contains the end point for the path
+   *  @param path that stores the path to the goal
+   *  @param map Object to get the rows, grid value and column
+   *
+   *  @return bool
+   */
+  bool computeShortestPath(std::vector<int>, std::vector<int>,
+                           std::vector<std::vector<int> >&, map&);
+  /**
+   *  @brief function to find the neighbour of the given point which is without the obstacle
+   *
+   *  @param v vector contains the point to which neighbour has to be found
+   *  @param list is a queue contains the list of neighbour
+   *  @param map Object to get rows and columns
+   *
+   *  @return None
+   */
+  void findObstacleFreeNeighbours(std::vector<int>,
+                                  std::queue<std::vector<int> >&, map&);
+  /**
+   *  @brief function to publish goal to the move base topic
+   *
+   *  @param resolution is a float that contains the resolution of the map
+   *  @param map Object to get the rows, column
+   *
+   *  @return bool whether it has reached the target or not
+   */
+  bool navigate(float, map&, std::vector<int>);
+  /**
+   *  @brief class destructor
+   *
+   *  @return None
+   */
   ~explore();
 };
