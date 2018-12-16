@@ -43,42 +43,44 @@
 #include <gtest/gtest.h>
 #include <ros/ros.h>
 #include <ros/service_client.h>
-#include "../include/map.hpp"
-#include "../include/BFS.hpp"
-
+#include "map.hpp"
+#include "BFS.hpp"
 
 TEST(requestMap, checkNodeActivation) {
-// Creating a Node Handle 
-ros::NodeHandle nh;
+// Creating a Node Handle
+  ros::NodeHandle nh;
 // Bool variable to check the output
-bool output;
+  bool output;
 // Creating a map object
-map mapObj;
+  map mapObj;
 // Calling the requestMap using map object
-output = mapObj.requestMap(nh);
-ros::spinOnce();
+  output = mapObj.requestMap(nh);
+  ros::spinOnce();
 // Checking whether the output is true or not
 // if not this test case is passed
-EXPECT_EQ(1, output);
+  EXPECT_EQ(1, output);
 }
 
 TEST(frontierSearch, CheckFrontierSearch) {
-// testing for 3x3 occupancy grid
-int height  = 4;
-int width = 4;
-//creating a MAP object
-map mapObj;
-mapObj.frontierSearch(height, width);
-EXPECT_EQ(2, mapObj.getCentroidSize());
+  // testing for 3x3 occupancy grid
+  int height = 3;
+  int width = 3;
+  //  creating a MAP object
+  map mapObj;
+  mapObj.frontierSearch(height, width);
+  EXPECT_EQ(2, mapObj.getCentroidSize());
 }
 
 TEST(checkNeighbour, CheckFrontierSearch) {
-//creating a Map objects
-map mapObj;
-EXPECT_EQ(false, mapObj.checkNeighbour(3,0,0));
+  // creating a Map objects
+  map mapObj;
+  EXPECT_EQ(false, mapObj.checkNeighbour(3, 0, 0));
 }
-
-
+TEST(GetResolution, CheckResolution) {
+  // creating a Map objects
+  map mapObj;
+  EXPECT_EQ(0, mapObj.getResolution());
+}
 TEST(nearest, checkReturnValue) {
   // Creating the map object
   map mapObj;
@@ -102,7 +104,7 @@ TEST(nearest, checkReturnValue) {
   // calling the nearest function and storing it in a queue
   output = mapObj.nearest(qList, x, y);
   // the values should be (1,1) as it is nearer to (0,0) than (2,2)
-  EXPECT_EQ(tempVec,output);
+  EXPECT_EQ(tempVec, output);
 }
 
 TEST(computeFrontierCentroid, checkCentroidValue) {
@@ -111,7 +113,7 @@ TEST(computeFrontierCentroid, checkCentroidValue) {
   // creating a Queue to send as input to computeFrontierCentroid function
   std::queue<std::vector<int>> frontierQueue;
   // Creating a temporary vector
-  std::vector<int> tempVec;
+  std::vector<int> tempVec, compareVec;
   // adding the point (2,2) to the queue
   tempVec.push_back(2);
   tempVec.push_back(2);
@@ -122,7 +124,26 @@ TEST(computeFrontierCentroid, checkCentroidValue) {
   tempVec.push_back(0);
   frontierQueue.push(tempVec);
   tempVec.clear();
+  // pushing the (1,1) to compare Vector
+  compareVec.push_back(0);
+  compareVec.push_back(0);
   // Calling the function computeFrontierCentroid
   tempVec = mapObj.computeFrontierCentroid(frontierQueue);
+  EXPECT_EQ(compareVec, tempVec);
 }
-
+TEST(ReturnRows, checkReturnValueOfRow) {
+  map mapObj;
+  EXPECT_EQ(3, mapObj.returnRows());
+}
+TEST(ReturnCols, checkReturnValueOfCols) {
+  map mapObj;
+  EXPECT_EQ(3, mapObj.returnCols());
+}
+TEST(GetGridValue, checkGetGridValue) {
+  map mapObj;
+  EXPECT_EQ(0, mapObj.getGridValue(0, 0));
+}
+/*
+ void mapcallback(const nav_msgs::OccupancyGrid& msg);
+ std::vector<int> getStart();
+ */
