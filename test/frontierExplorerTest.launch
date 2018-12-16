@@ -1,0 +1,4 @@
+<launch>
+  <node pkg="frontier_explorer" name="frontier_explorer"  type="frontier_explorer" />
+  <test pkg="frontier_explorer" test-name="testfrontierExplorer" type="testfrontierExplorer" />
+</launch>
