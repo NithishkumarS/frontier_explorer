@@ -39,53 +39,84 @@
  * @copyright 2018 , Nantha Kumar Sunder, Nithish Sanjeev Kumar All rights reserved
 
  */
-
-#include <vector>
-#include <queue>
 #include <gtest/gtest.h>
 #include <ros/ros.h>
 #include <ros/service_client.h>
+#include <vector>
+#include <queue>
 #include "../include/BFS.hpp"
 
 TEST(computeBFS, checkBFSAlogrithm) {
-	// Creating a bfs object
-	BFS bfsObj(3,3);
-	// Creating a queue for frontier points and output
-	std::queue<std::vector<int>> frontierQueue, outputQueue;
-	// Creating a vector for starting point
-	std::vector<int> start, tempVec; 
+  // Creating a bfs object
+  BFS bfsObj(3, 3);
+  // Creating a queue for frontier points and output
+  std::queue<std::vector<int>> frontierQueue, outputQueue;
+  // Creating a vector for starting point
+  std::vector<int> start, tempVec;
 
-	// setting the starting position as (0,0)
-	start.push_back(0);
-	start.push_back(0);
+  // setting the starting position as (0,0)
+  start.push_back(0);
+  start.push_back(0);
 
-	// setting the frontier points at (2,0) and (1,2)
-	tempVec.push_back(0);
-	tempVec.push_back(2);
-	// Pushing the tempStart to the queue
-	frontierQueue.push(tempVec);
-	tempVec.clear();
-	// setting the frontier points at (2,0) and (0,2)
-	tempVec.push_back(1);
-	tempVec.push_back(2);
-	// Pushing the tempStart to the queue
-	frontierQueue.push(tempVec);
-	tempVec.clear();
+  // setting the frontier points at (2,0) and (1,2)
+  tempVec.push_back(0);
+  tempVec.push_back(2);
+  // Pushing the tempStart to the queue
+  frontierQueue.push(tempVec);
+  tempVec.clear();
+  // setting the frontier points at (2,0) and (0,2)
+  tempVec.push_back(1);
+  tempVec.push_back(2);
+  // Pushing the tempStart to the queue
+  frontierQueue.push(tempVec);
+  tempVec.clear();
 
-	// Calling the computeBFS function
-	outputQueue = bfsObj.computeBFS(frontierQueue, start);
+  // Calling the computeBFS function
+  outputQueue = bfsObj.computeBFS(frontierQueue, start);
 
-	// Checking equality
-	EXPECT_EQ(outputQueue, frontierQueue);
+  // Checking equality
+  EXPECT_EQ(outputQueue.size(), frontierQueue.size());
+}
+TEST(NeighbourList, checkNeighbourListOutput) {
+  // Creating a bfs object
+  BFS bfsObj(3, 3);
+  // Creating a queue for list of neighbour
+  std::queue<std::vector<int>> list;
+  // Creating a vector for starting point
+  std::vector<int> start, tempVec;
+  // Creating a vector for frontier List
+  std::vector<std::vector<int>> frontierVector;
+
+  // setting the starting position as (0,0)
+  start.push_back(0);
+  start.push_back(0);
+
+  // setting the frontier points at (2,0) and (1,2)
+  tempVec.push_back(0);
+  tempVec.push_back(1);
+  // Pushing the tempStart to the queue
+  frontierVector.push_back(tempVec);
+  tempVec.clear();
+  // setting the frontier points at (2,0) and (0,2)
+  tempVec.push_back(1);
+  tempVec.push_back(0);
+  // Pushing the tempStart to the queue
+  frontierVector.push_back(tempVec);
+  tempVec.clear();
+
+  // Calling the neighbourList function
+  bfsObj.neighbourList(frontierVector, start, list);
+
+  // Checking equality
+  EXPECT_EQ(2, list.size());
 }
 
-TEST(getExplored, checkReturnValue){
-	BFS bfsObj(3,3);
-	EXPECT_EQ(0, bfsObj.getExplored(0,0));
+TEST(getExplored, checkReturnValue) {
+  BFS bfsObj(3, 3);
+  EXPECT_EQ(0, bfsObj.getExplored(0, 0));
 }
 
-
-TEST(getDistance, checkReturnValue){
-	BFS bfsObj(3,3);
-	EXPECT_EQ(0, bfsObj.getDistance(0,0));
+TEST(getDistance, checkReturnValue) {
+  BFS bfsObj(3, 3);
+  EXPECT_EQ(0, bfsObj.getDistance(0, 0));
 }
