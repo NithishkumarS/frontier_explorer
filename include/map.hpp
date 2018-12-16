@@ -42,52 +42,143 @@
 #pragma once
 
 #include <ros/ros.h>
-#include <vector>
 #include <nav_msgs/GetMap.h>
+#include <vector>
 #include <queue>
 #include "../include/BFS.hpp"
 
-class map{
+/**
+ * @brief Class to implement the MAP
+ *  @param frontier queue to hold the frontier points
+ *  @param Centroid queue to hold the centroid of
+ *         individual frontiers
+ *  @param grid the map as 2d vector
+ *  @param row integer with row size of grid
+ *  @param cols integer with coloumn size of grid
+ *  @param mapResolution integer with resolution of grid
+ *  @param OGM_Subscriber is the subscriber handle for /Map
+ *  @param start vector containing the origin
+ *  @return none
+ */
+class map {
  private:
-  std::queue< std::vector<int> > frontierQueue;
-  std::queue< std::vector<int> > centroidQueue;
-  std::vector < std::vector <int> > grid;
+  std::queue<std::vector<int> > frontierQueue;
+  std::queue<std::vector<int> > centroidQueue;
+  std::queue<std::vector<int> > explored;
+  std::vector<std::vector<int> > grid;
   int rows, cols;
-  double mapResolution;
+  float mapResolution;
   ros::Subscriber OGM_subscriber;
 
  public:
+  /**
+   *  @brief Constructor for the class map
+   *  @param None
+   *  @return None
+   */
   map();
 
-  void pushFrontierQueue(std::vector<int>);
+  std::vector<int> start;
 
-  std::vector<int> popFrontierQueue();
-
-  void pushCentroidQueue(std::vector<int>);
-
-  std::vector <int> popCentroidQueue();
-
-  std::queue< std::vector<int> > frontierSearch();
-
-  std::vector<int> computeFrontierCentroid();
-
+  /**
+   *  @brief Function to search frontiers in the map
+   *  @param X coordinate of grid
+   *  @param Y coordinate of grid
+   *  @return none
+   */
   void frontierSearch(int, int);
 
+  /**
+   *  @brief Function to check if the neighbour's grid value
+   *  @param X coordinate of grid
+   *  @param Y coordinate of grid
+   *  @param Value to be checked
+   *  @return Check
+   */
   bool checkNeighbour(int, int, int);
 
-  std::vector<int> computeFrontierCentroid(const std::queue<std::vector<int>>& );
+  /**
+   *  @brief Function to compute the centroid of the frontier
+   *  @param Frontier Queue containing the centroid coordinates
+   *  @return Centroid point
+   */
+  std::vector<int> computeFrontierCentroid(const std::queue<std::vector<int>>&);
 
-  std::vector<int> nearest(const std::queue<std::vector<int>>& , int, int);
+  /**
+   *  @brief Function to find the point closest to computed centroid
+   *  @param Frontier Queue containing individual frontier points
+   *  @return Point on frontier nearest to centroid
+   */
+  std::vector<int> nearest(const std::queue<std::vector<int>>&, int, int);
 
-  void getOccupancyGrid();
+  /**
+   *  @brief Function to request map from gmapping node
+   *  @param Node handle
+   *  @return Check if map is received
+   */
+  bool requestMap(ros::NodeHandle&);
 
-  bool requestMap(ros::NodeHandle &nh);
-
+  /**
+   *  @brief CallBack function for the map subscriber
+   *  @param Contains the map in as occupancy grid in row major form
+   *  @return none
+   */
   void mapcallback(const nav_msgs::OccupancyGrid& msg);
 
+  /**
+   *  @brief Function to find the point closest to computed centroid
+   *  @param Frontier Queue containing individual frontier points
+   *  @return Point on frontier nearest to centroid
+   */
+  std::vector<int> nearestCentroid(int, int);
+
+  /**
+   *  @brief Function to return the grid value
+   *  @param X coordinate
+   *  @param Y coordinate
+   *  @return Grid value
+   */
   int getGridValue(int, int);
+
+  /**
+   *  @brief Function to return the size of centroid queue
+   *  @param None
+   *  @return centroid size
+   */
   int getCentroidSize();
+
+  /**
+   *  @brief Function to return row size
+   *  @param None
+   *  @return row size
+   */
   int returnRows();
+
+  /**
+   *  @brief Function to return coloumn size
+   *  @param None
+   *  @return coloumn size
+   */
   int returnCols();
+
+  /**
+   *  @brief Function to return resolution of the map
+   *  @param None
+   *  @return resolution of the map
+   */
+  float getResolution();
+
+  /**
+   *  @brief Function to return origin
+   *  @param None
+   *  @return origin vector
+   */
+  std::vector<int> getStart();
+
+  /**
+   *  @brief Destructor for the class map
+   *  @param None
+   *  @return None
+   */
   ~map();
 };
