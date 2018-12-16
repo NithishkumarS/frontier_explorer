@@ -31,47 +31,86 @@
  */
 
 /**@file BFS.hpp
- *
  * @brief To declare a class which implements BFS
- *
  * @driver Nantha Kumar Sunder
  * @navigator Nithish Sanjeev Kumar
  * @copyright 2018 , Nantha Kumar Sunder, Nithish Sanjeev Kumar All rights reserved
-
  */
 #pragma once
-#include "ros/ros.h"
 #include <vector>
 #include <queue>
-
-/** @brief Class to implement the control of turtlebot
- *  @param nh NodeHandle for the node
- *  @param depth Class object of depthData
- *  @param vel Publisher object
- *  @param laser Subsriber object
- *  @param info  variable to send velocities
- *  @return bool
+#include "ros/ros.h"
+/**
+ *  @brief Class to implement the BFS
+ *
+ *  @param pQueue queue to store the coordinates
+ *  @param distance euclidean distance from the start node
+ *  @param explored visited node in the occupancy grid
+ *
+ *  @return None
  */
-class BFS{
+class BFS {
  private:
-  std::queue< std::vector<int> > pQueue;
-  std::vector < std::vector <int> > distance;
-  std::vector < std::vector <int> > explored;
- public:
- /**@brief constructor
-  * @param none
-  * @return none
-  */
-BFS(int, int);
-std::queue<std::vector<int>> computeBFS(const std::queue<std::vector<int>>&, std::vector<int>);
-void neighbourList(const std::vector<std::vector<int> >& ,
-                    std::vector<int> , std::queue<std::vector<int> >& );
-int getExplored(int, int);
-int getDistance(int, int);
+  // Queue to store the priority queue for BFS
+  std::queue<std::vector<int> > pQueue;
+  // euclidean distance from the start node
+  std::vector<std::vector<int> > distance;
+  // variable to set the visited grid from BFS
+  std::vector<std::vector<int> > explored;
 
-/**@brief destructor
-  * @param zStart
-  * @return none
-  */
-~BFS();
+ public:
+  /**
+   *  @brief Constructor for the class BFS
+   *
+   *  @param cols column to resize the explored and distance
+   *  @param rows row to resize the explored and distance
+   *
+   *  @return None
+   */
+  BFS(int, int);
+  /**
+   *  @brief function to compute BFS
+   *
+   *  @param frontierQueue contains list of all frontiers
+   *  @param start point of the turtlebot
+   *
+   *  @return frontiers Queue to store all the frontiers
+   */
+  std::queue<std::vector<int>> computeBFS(const std::queue<std::vector<int>>&,
+                                          std::vector<int>);
+  /**
+   *  @brief function to estimate the neighbouring node
+   *
+   *  @param frontier vector
+   *  @param vector coordinate to which neighbouring node has to found out
+   *  @param list of all neighbouring node of the given coordinate
+   *
+   *  @return frontiers Queue to store all the frontiers
+   */
+  void neighbourList(const std::vector<std::vector<int> >&, std::vector<int>,
+                     std::queue<std::vector<int> >&);
+  /**
+   *  @brief function to get the explored value of a specific grid
+   *
+   *  @param x x-position of the grid
+   *  @param y y-position of the grid
+   *
+   *  @return integer value of explored grid for the x and y coordinates
+   */
+  int getExplored(int, int);
+  /**
+   *  @brief function to get the distance value of a specific grid
+   *
+   *  @param x x-position of the grid
+   *  @param y y-position of the grid
+   *
+   *  @return integer value of distance grid for the x and y coordinates
+   */
+  int getDistance(int, int);
+  /**
+   *  @brief class destructor
+   *
+   *  @return None
+   */
+  ~BFS();
 };
