@@ -1,0 +1,35 @@
+<launch>
+
+	<include file="$(find turtlebot_gazebo)/launch/turtlebot_world.launch">
+	<arg name="world_file" value="$(find frontier_explorer)/world/plant.sdf"/>
+	</include>
+	<include file="$(find turtlebot_gazebo)/launch/gmapping_demo.launch"/>
+	<include file="$(find turtlebot_rviz_launchers)/launch/view_navigation.launch"/>
+	<include file="$(find turtlebot_navigation)/launch/includes/move_base.launch.xml"/>
+       <node
+	pkg="frontier_explorer"
+	name="frontier_explorer"
+	type="frontier_explorer"
+	output="screen"
+	launch-prefix="gnome-terminal --command"
+       />
+        <arg 
+          name ="rec" 
+          default="false"
+ 	/>
+        <arg 
+          name="secs" 
+          default="20"
+        />
+	<node 
+    	  pkg="rosbag" 
+    	  type="record" 
+    	  name="record"
+    	  args="-a -O $(find frontier_explorer)/results/record.bag -x /camera/(.*)  --duration=$(arg secs) "
+    	  if="$(arg rec)"
+	 />
+
+
+	
+</launch>
+                
