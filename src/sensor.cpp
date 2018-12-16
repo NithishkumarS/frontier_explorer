@@ -1,0 +1,92 @@
+/**
+ * BSD 3-Clause License
+ *
+ * Copyright (c) 2018, Nantha Kumar Sunder, Nithish Sanjeev Kumar
+ * All rights reserved.
+ *
+ * Redistribution and use in source and binary forms, with or without
+ * modification, are permitted provided that the following conditions are met:
+
+ * * Redistributions of source code must retain the above copyright notice, this
+ * list of conditions and the following disclaimer.
+
+ * * Redistributions in binary form must reproduce the above copyright notice,
+ *  this list of conditions and the following disclaimer in the documentation
+ * and/or other materials provided with the distribution.
+ *
+ * * Neither the name of the copyright holder nor the names of its
+ *  contributors may be used to endorse or promote products derived from
+ *  this software without specific prior written permission.
+
+ * THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS"
+ * AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE
+ * IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE
+ * DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE
+ * FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL
+ * DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR
+ * SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER
+ * CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY,
+ * OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
+ * OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+ */
+
+/**@file sensor.hpp
+ *
+ * @brief class definition which implements radiation sensor module
+ *
+ * @driver Nantha Kumar Sunder
+ * @navigator Nithish Sanjeev Kumar
+ * @copyright 2018 , Nantha Kumar Sunder, Nithish Sanjeev Kumar All rights reserved
+
+ */
+#include <cmath>
+#include <fstream>
+#include <vector>
+#include "../include/sensor.hpp"
+
+sensor::sensor(map& obj) {
+  // reassigning the radiation map
+  radiationMap.resize(obj.returnCols());
+  for (auto& i : radiationMap) {
+    i.resize(obj.returnCols());
+  }
+  // Initializing the radiationMap
+  int x = 0;
+  int y = 0;
+  for (auto& i : radiationMap) {
+    y = 0;
+    for (auto& j : i) {
+      j = y * x / (obj.returnRows() + obj.returnCols()) * 2;
+      y++;
+    }
+    x++;
+  }
+}
+void sensor::saveRadiationMap() {
+  // creating a stream
+  std::ofstream img("radiationMap.ppm");
+  // getting the radiationMap size
+  int rows = radiationMap.size();
+  int cols = radiationMap[0].size();
+  // using img to create a ppm format file
+  img << "P3" << std::endl;
+  img << cols << " " << rows << std::endl;
+  img << "255" << std::endl;
+  // setting random values for radiation
+  for (auto& i : radiationMap) {
+    for (auto& j : i) {
+      int r = j;
+      int g = j;
+      int b = j;
+      // Setting the R G B values
+      img << r << " " << g << " " << b << std::endl;
+    }
+  }
+}
+std::vector<std::vector<float>> sensor::getRadiationMap() {
+  // return the radiationMap
+  return radiationMap;
+}
+sensor::~sensor() {
+}
+
