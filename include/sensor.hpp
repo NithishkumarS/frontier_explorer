@@ -39,3 +39,43 @@
  * @copyright 2018 , Nantha Kumar Sunder, Nithish Sanjeev Kumar All rights reserved
 
  */
+#pragma once
+#include <vector>
+#include "map.hpp"
+
+/**
+ *  @brief Class to implement the radiation sensor
+ *
+ *  @param radiationMap that store the intensity of the radiation
+ *
+ *  @return None
+ */
+class sensor {
+ private:
+  // radiationMap is the vector that contains the radiation intensity
+  std::vector<std::vector<float>> radiationMap;
+
+ public:
+  /**
+   *  @brief class constructor
+   *
+   *  @param Map object to get number of rows and column in the map
+   *
+   *  @return None
+   */
+  explicit sensor(map&);
+  /**
+   *  @brief Class to save the radiation data as ppm file
+   *
+   *  @return None
+   */
+  void saveRadiationMap();
+  /**
+   *  @brief Class to implement the BFS
+   *
+   *  @return radiationMap in 2-D vector
+   */
+  std::vector<std::vector<float>> getRadiationMap();
+  ~sensor();
+};
+
