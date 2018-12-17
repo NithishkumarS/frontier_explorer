@@ -125,7 +125,7 @@ catkin_make
 
 ```
 cd ~/catkin_ws/
-catkin_make_isolated --make-args-run_tests 
+catkin_make_isolated --make-args run_tests 
 ```
 
 ## Running the Demo through launch file
