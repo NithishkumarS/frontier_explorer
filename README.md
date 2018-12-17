@@ -103,13 +103,6 @@ The documentation for sprint notes is can be found [here](https://docs.google.co
 | `include` | COntains the main directories	    |
 
 
-## Instructions to create catkin workspace
-
-To create catkin workspace, open terminal and type the following commands
-```
-catkin_make
-```
-
 ## Build Steps
 
 Once catkin workspace is created, open terminal and type the following commands to clone the repository.
@@ -117,7 +110,7 @@ Once catkin workspace is created, open terminal and type the following commands 
 ```
 mkdir -p ~/catkin_ws/src
 cd ~/catkin_ws/src/
-git clone --recursive https://github.com/nantha007/frontierExplorer.git
+git clone --recursive https://github.com/nantha007/frontier_explorer.git
 ```
 
 Once repository is cloned, type the following commands to setup the repository.
@@ -129,35 +122,48 @@ catkin_make
 ```
 
 ## Running tests
+
 ```
 cd ~/catkin_ws/
 catkin_make_isolated --make-args-run_tests 
 ```
+
 ## Running the Demo through launch file
 
 To run a demo using the following command
+
 ```
 cd ~/catkin_ws/
 source devel/setup.bash
-roslaunch frontier_explorer map.launch
+roslaunch frontier_explorer frontier_explorer.launch
 ```
 
 
-
 ## Rosbag:
+
+To record the bags from the launch, run the following commands.
 
 ```
 cd ~/catkin_ws/
 source devel/setup.bash
 catkin_make
-roslaunch frontier_explorer frontier_explorer.launch rec:=1
+roslaunch frontier_explorer frontier_explorer.launch rec:=1 
+```
+
+To specify the duration of the record
+
+```
+cd ~/catkin_ws/
+source devel/setup.bash
+catkin_make
+roslaunch frontier_explorer frontier_explorer.launch rec:=1 duration:=20
 ```
 
 Rosbag could be retrieved from the Results folder in frontier_explorer
 
-Navigate to the reesults folder
+Navigate to the results folder
 ```
-cd ~/catkin_ws/src/frontier_explore/Results
+cd ~/catkin_ws/src/frontier_explorer/Results
 rosbag play record.bag
 ```
 
@@ -168,21 +174,14 @@ To generte the doxygen files
 ```
 sudo apt-get install doxygen
 sudo apt-get install doxywizard
-doxywizard
+doxygen -g
 ```
 
-After the doxywizard is open, select the worksapce of the repo and create doxygen files to a destination in the workspace using the following commands.
-
+Configure the doxyfile and run the the following commands.
+```
+doxygen Doxyfile
 ```
 
-```
 
-## Coverage
-
-
-
-## Known Bugs or Issues
-
-* Sometimes 
 
 
