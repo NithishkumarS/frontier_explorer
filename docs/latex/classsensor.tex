@@ -1,0 +1,172 @@
+\hypertarget{classsensor}{}\section{sensor Class Reference}
+\label{classsensor}\index{sensor@{sensor}}
+
+
+Class to implement the radiation sensor.  
+
+
+
+
+{\ttfamily \#include $<$sensor.\+hpp$>$}
+
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classsensor_af1db958929faf6e927e2eca5b05c3b40}{sensor} (\hyperlink{classmap}{map} \&)
+\begin{DoxyCompactList}\small\item\em class constructor \end{DoxyCompactList}\item 
+void \hyperlink{classsensor_aa7aac0b5dca04e72e9334457a3cbd498}{save\+Radiation\+Map} ()
+\begin{DoxyCompactList}\small\item\em Class to save the radiation data as ppm file. \end{DoxyCompactList}\item 
+std\+::vector$<$ std\+::vector$<$ float $>$ $>$ \hyperlink{classsensor_af13c7b147a19c868375b44199ab9760e}{get\+Radiation\+Map} ()
+\begin{DoxyCompactList}\small\item\em Class to implement the \hyperlink{classBFS}{B\+FS}. \end{DoxyCompactList}\item 
+\hyperlink{classsensor_a9252346748c0bd090109ee5bcf45f13a}{$\sim$sensor} ()
+\end{DoxyCompactItemize}
+\subsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+std\+::vector$<$ std\+::vector$<$ float $>$ $>$ \hyperlink{classsensor_a20a26da767dcc2547c02e56dc969e549}{radiation\+Map}
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Class to implement the radiation sensor. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em radiation\+Map} & that store the intensity of the radiation\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+None 
+\end{DoxyReturn}
+
+
+Definition at line 53 of file sensor.\+hpp.
+
+
+
+\subsection{Constructor \& Destructor Documentation}
+\index{sensor@{sensor}!sensor@{sensor}}
+\index{sensor@{sensor}!sensor@{sensor}}
+\subsubsection[{\texorpdfstring{sensor(map \&)}{sensor(map &)}}]{\setlength{\rightskip}{0pt plus 5cm}sensor\+::sensor (
+\begin{DoxyParamCaption}
+\item[{{\bf map} \&}]{obj}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [explicit]}}\hypertarget{classsensor_af1db958929faf6e927e2eca5b05c3b40}{}\label{classsensor_af1db958929faf6e927e2eca5b05c3b40}
+
+
+class constructor 
+
+
+\begin{DoxyParams}{Parameters}
+{\em Map} & object to get number of rows and column in the map\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+None 
+\end{DoxyReturn}
+
+
+Definition at line 47 of file sensor.\+cpp.
+
+
+
+References radiation\+Map, map\+::return\+Cols(), and map\+::return\+Rows().
+
+
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=289pt]{classsensor_af1db958929faf6e927e2eca5b05c3b40_cgraph}
+\end{center}
+\end{figure}
+
+
+\index{sensor@{sensor}!````~sensor@{$\sim$sensor}}
+\index{````~sensor@{$\sim$sensor}!sensor@{sensor}}
+\subsubsection[{\texorpdfstring{$\sim$sensor()}{~sensor()}}]{\setlength{\rightskip}{0pt plus 5cm}sensor\+::$\sim$sensor (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\hypertarget{classsensor_a9252346748c0bd090109ee5bcf45f13a}{}\label{classsensor_a9252346748c0bd090109ee5bcf45f13a}
+
+
+Definition at line 90 of file sensor.\+cpp.
+
+
+
+\subsection{Member Function Documentation}
+\index{sensor@{sensor}!get\+Radiation\+Map@{get\+Radiation\+Map}}
+\index{get\+Radiation\+Map@{get\+Radiation\+Map}!sensor@{sensor}}
+\subsubsection[{\texorpdfstring{get\+Radiation\+Map()}{getRadiationMap()}}]{\setlength{\rightskip}{0pt plus 5cm}std\+::vector$<$ std\+::vector$<$ float $>$ $>$ sensor\+::get\+Radiation\+Map (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\hypertarget{classsensor_af13c7b147a19c868375b44199ab9760e}{}\label{classsensor_af13c7b147a19c868375b44199ab9760e}
+
+
+Class to implement the \hyperlink{classBFS}{B\+FS}. 
+
+\begin{DoxyReturn}{Returns}
+radiation\+Map in 2-\/D vector 
+\end{DoxyReturn}
+
+
+Definition at line 86 of file sensor.\+cpp.
+
+
+
+References radiation\+Map.
+
+
+
+Referenced by T\+E\+S\+T().
+
+\index{sensor@{sensor}!save\+Radiation\+Map@{save\+Radiation\+Map}}
+\index{save\+Radiation\+Map@{save\+Radiation\+Map}!sensor@{sensor}}
+\subsubsection[{\texorpdfstring{save\+Radiation\+Map()}{saveRadiationMap()}}]{\setlength{\rightskip}{0pt plus 5cm}void sensor\+::save\+Radiation\+Map (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\hypertarget{classsensor_aa7aac0b5dca04e72e9334457a3cbd498}{}\label{classsensor_aa7aac0b5dca04e72e9334457a3cbd498}
+
+
+Class to save the radiation data as ppm file. 
+
+\begin{DoxyReturn}{Returns}
+None 
+\end{DoxyReturn}
+
+
+Definition at line 65 of file sensor.\+cpp.
+
+
+
+References radiation\+Map.
+
+
+
+Referenced by main().
+
+
+
+\subsection{Member Data Documentation}
+\index{sensor@{sensor}!radiation\+Map@{radiation\+Map}}
+\index{radiation\+Map@{radiation\+Map}!sensor@{sensor}}
+\subsubsection[{\texorpdfstring{radiation\+Map}{radiationMap}}]{\setlength{\rightskip}{0pt plus 5cm}std\+::vector$<$std\+::vector$<$float$>$ $>$ sensor\+::radiation\+Map\hspace{0.3cm}{\ttfamily [private]}}\hypertarget{classsensor_a20a26da767dcc2547c02e56dc969e549}{}\label{classsensor_a20a26da767dcc2547c02e56dc969e549}
+
+
+Definition at line 56 of file sensor.\+hpp.
+
+
+
+Referenced by get\+Radiation\+Map(), save\+Radiation\+Map(), and sensor().
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+include/\hyperlink{sensor_8hpp}{sensor.\+hpp}\item 
+src/\hyperlink{sensor_8cpp}{sensor.\+cpp}\end{DoxyCompactItemize}

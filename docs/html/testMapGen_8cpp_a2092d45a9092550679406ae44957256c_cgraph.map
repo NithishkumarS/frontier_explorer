@@ -1,0 +1,4 @@
+<map id="TEST" name="TEST">
+<area shape="rect" id="node2" href="$classmap.html#ad0c8afa9f68ede5257f5b7b2d33b093f" title="Function to request map from gmapping node. " alt="" coords="109,5,232,32"/>
+<area shape="rect" id="node3" href="$classmap.html#ad3a6b0b96fc74179816e7a4ed785fc4d" title="CallBack function for the map subscriber. " alt="" coords="280,5,408,32"/>
+</map>

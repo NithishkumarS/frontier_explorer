@@ -1,0 +1,10 @@
+<map id="TEST" name="TEST">
+<area shape="rect" id="node2" href="$classmap.html#acaa7a0726870c1d08c75b3f84caa298b" title="Function to search frontiers in the map. " alt="" coords="115,81,251,108"/>
+<area shape="rect" id="node9" href="$classmap.html#af9092b505e0d7f793322c7a481e3ca88" title="Function to return the size of centroid queue. " alt="" coords="109,132,257,159"/>
+<area shape="rect" id="node3" href="$classmap.html#abedfe6722ad83929739afd899c88fea4" title="Constructor for the class map. " alt="" coords="365,5,445,32"/>
+<area shape="rect" id="node4" href="$classmap.html#a5e55d5c21318b0036147b9ea558c6983" title="Function to check if the neighbour&#39;s grid value. " alt="" coords="330,56,479,83"/>
+<area shape="rect" id="node5" href="$classBFS.html#a569f5936b7d708e928f6477548ffcdd2" title="function to compute BFS " alt="" coords="339,107,471,133"/>
+<area shape="rect" id="node7" href="$classmap.html#ad07d469282f85b48d181e530a886b335" title="Function to compute the centroid of the frontier. " alt="" coords="305,157,504,184"/>
+<area shape="rect" id="node6" href="$classBFS.html#a099fc340466239bed3cb23bcf3c6eeae" title="function to estimate the neighbouring node " alt="" coords="552,107,685,133"/>
+<area shape="rect" id="node8" href="$classmap.html#a300d8aaac77b805595e640205aad1cb0" title="Function to find the point closest to computed centroid. " alt="" coords="569,157,668,184"/>
+</map>

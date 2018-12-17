@@ -1,0 +1,27 @@
+var classmap =
+[
+    [ "map", "classmap.html#abedfe6722ad83929739afd899c88fea4", null ],
+    [ "~map", "classmap.html#a0cc22df7b44f7835fa10ed241848b041", null ],
+    [ "checkNeighbour", "classmap.html#a5e55d5c21318b0036147b9ea558c6983", null ],
+    [ "computeFrontierCentroid", "classmap.html#ad07d469282f85b48d181e530a886b335", null ],
+    [ "frontierSearch", "classmap.html#acaa7a0726870c1d08c75b3f84caa298b", null ],
+    [ "getCentroidSize", "classmap.html#af9092b505e0d7f793322c7a481e3ca88", null ],
+    [ "getGridValue", "classmap.html#a696bcdd2197355d1ff65e6fdf90cad46", null ],
+    [ "getResolution", "classmap.html#abd2282cb63fd166dbf2e90f78f610953", null ],
+    [ "getStart", "classmap.html#a51047b6cd09491df72de1447c7c99431", null ],
+    [ "mapcallback", "classmap.html#ad3a6b0b96fc74179816e7a4ed785fc4d", null ],
+    [ "nearest", "classmap.html#a300d8aaac77b805595e640205aad1cb0", null ],
+    [ "nearestCentroid", "classmap.html#a69743a83eb45ec5cef3fbc07aae26427", null ],
+    [ "requestMap", "classmap.html#ad0c8afa9f68ede5257f5b7b2d33b093f", null ],
+    [ "returnCols", "classmap.html#abffb3a9e6f9e18a73695b62e42d0811c", null ],
+    [ "returnRows", "classmap.html#a665740b6cec1d2fac63bf1a9985e9628", null ],
+    [ "centroidQueue", "classmap.html#a8fe868100933bfd68b502b68d42f1883", null ],
+    [ "cols", "classmap.html#ad82f9850ab232d78d0cac14c5e6a752f", null ],
+    [ "explored", "classmap.html#ad8a2f40c1520dd9f0f5337abbf81e64f", null ],
+    [ "frontierQueue", "classmap.html#ad3683241c11549fa2888eadf3465857f", null ],
+    [ "grid", "classmap.html#a43036b0bcee6beeb4e8f4dfc5019e5fb", null ],
+    [ "mapResolution", "classmap.html#ab2c38de30b06b80ec0a6ce646056d33a", null ],
+    [ "OGM_subscriber", "classmap.html#ae40cfd9b303640dfc7a56e198056d2a0", null ],
+    [ "rows", "classmap.html#a2ee828fe96a115fe070e8ff8eea7b488", null ],
+    [ "start", "classmap.html#a73ea3c7b79de5a8b5733b7babc21e68b", null ]
+];

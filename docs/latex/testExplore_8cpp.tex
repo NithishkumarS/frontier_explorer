@@ -1,0 +1,110 @@
+\hypertarget{testExplore_8cpp}{}\section{test/test\+Explore.cpp File Reference}
+\label{testExplore_8cpp}\index{test/test\+Explore.\+cpp@{test/test\+Explore.\+cpp}}
+
+
+To test the class explore.  
+
+
+{\ttfamily \#include $<$gtest/gtest.\+h$>$}\\*
+{\ttfamily \#include $<$ros/ros.\+h$>$}\\*
+{\ttfamily \#include $<$vector$>$}\\*
+{\ttfamily \#include $<$queue$>$}\\*
+{\ttfamily \#include \char`\"{}map.\+hpp\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}explore.\+hpp\char`\"{}}\\*
+Include dependency graph for test\+Explore.\+cpp\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{testExplore_8cpp__incl}
+\end{center}
+\end{figure}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{testExplore_8cpp_afcc81a2b305ae7087ad05ab6b7fe8c3c}{T\+E\+ST} (find\+Obstacle\+Free\+Neighbours, To\+Find\+The\+Obtacle\+Free\+Neighbours)
+\item 
+\hyperlink{testExplore_8cpp_aaff8adb5fb0dfc1232a375f71faea03e}{T\+E\+ST} (compute\+Shortest\+Path, check\+Return\+Value)
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+To test the class explore. 
+
+B\+SD 3-\/\+Clause License
+
+Copyright (c) 2018, Nantha Kumar Sunder, Nithish Sanjeev Kumar All rights reserved.
+
+Redistribution and use in source and binary forms, with or without modification, are permitted provided that the following conditions are met\+:
+
+
+\begin{DoxyItemize}
+\item Redistributions of source code must retain the above copyright notice, this list of conditions and the following disclaimer.
+\item Redistributions in binary form must reproduce the above copyright notice, this list of conditions and the following disclaimer in the documentation and/or other materials provided with the distribution.
+\item Neither the name of the copyright holder nor the names of its contributors may be used to endorse or promote products derived from this software without specific prior written permission.
+\end{DoxyItemize}
+
+T\+H\+IS S\+O\+F\+T\+W\+A\+RE IS P\+R\+O\+V\+I\+D\+ED BY T\+HE C\+O\+P\+Y\+R\+I\+G\+HT H\+O\+L\+D\+E\+RS A\+ND C\+O\+N\+T\+R\+I\+B\+U\+T\+O\+RS \char`\"{}\+A\+S I\+S\char`\"{} A\+ND A\+NY E\+X\+P\+R\+E\+SS OR I\+M\+P\+L\+I\+ED W\+A\+R\+R\+A\+N\+T\+I\+ES, I\+N\+C\+L\+U\+D\+I\+NG, B\+UT N\+OT L\+I\+M\+I\+T\+ED TO, T\+HE I\+M\+P\+L\+I\+ED W\+A\+R\+R\+A\+N\+T\+I\+ES OF M\+E\+R\+C\+H\+A\+N\+T\+A\+B\+I\+L\+I\+TY A\+ND F\+I\+T\+N\+E\+SS F\+OR A P\+A\+R\+T\+I\+C\+U\+L\+AR P\+U\+R\+P\+O\+SE A\+RE D\+I\+S\+C\+L\+A\+I\+M\+ED. IN NO E\+V\+E\+NT S\+H\+A\+LL T\+HE C\+O\+P\+Y\+R\+I\+G\+HT H\+O\+L\+D\+ER OR C\+O\+N\+T\+R\+I\+B\+U\+T\+O\+RS BE L\+I\+A\+B\+LE F\+OR A\+NY D\+I\+R\+E\+CT, I\+N\+D\+I\+R\+E\+CT, I\+N\+C\+I\+D\+E\+N\+T\+AL, S\+P\+E\+C\+I\+AL, E\+X\+E\+M\+P\+L\+A\+RY, OR C\+O\+N\+S\+E\+Q\+U\+E\+N\+T\+I\+AL D\+A\+M\+A\+G\+ES (I\+N\+C\+L\+U\+D\+I\+NG, B\+UT N\+OT L\+I\+M\+I\+T\+ED TO, P\+R\+O\+C\+U\+R\+E\+M\+E\+NT OF S\+U\+B\+S\+T\+I\+T\+U\+TE G\+O\+O\+DS OR S\+E\+R\+V\+I\+C\+ES; L\+O\+SS OF U\+SE, D\+A\+TA, OR P\+R\+O\+F\+I\+TS; OR B\+U\+S\+I\+N\+E\+SS I\+N\+T\+E\+R\+R\+U\+P\+T\+I\+ON) H\+O\+W\+E\+V\+ER C\+A\+U\+S\+ED A\+ND ON A\+NY T\+H\+E\+O\+RY OF L\+I\+A\+B\+I\+L\+I\+TY, W\+H\+E\+T\+H\+ER IN C\+O\+N\+T\+R\+A\+CT, S\+T\+R\+I\+CT L\+I\+A\+B\+I\+L\+I\+TY, OR T\+O\+RT (I\+N\+C\+L\+U\+D\+I\+NG N\+E\+G\+L\+I\+G\+E\+N\+CE OR O\+T\+H\+E\+R\+W\+I\+SE) A\+R\+I\+S\+I\+NG IN A\+NY W\+AY O\+UT OF T\+HE U\+SE OF T\+H\+IS S\+O\+F\+T\+W\+A\+RE, E\+V\+EN IF A\+D\+V\+I\+S\+ED OF T\+HE P\+O\+S\+S\+I\+B\+I\+L\+I\+TY OF S\+U\+CH D\+A\+M\+A\+GE.
+
+Nithish Sanjeev Kumar  Nantha Kumar Sunder \begin{DoxyCopyright}{Copyright}
+2018 , Nantha Kumar Sunder, Nithish Sanjeev Kumar All rights reserved 
+\end{DoxyCopyright}
+
+
+\subsection{Function Documentation}
+\index{test\+Explore.\+cpp@{test\+Explore.\+cpp}!T\+E\+ST@{T\+E\+ST}}
+\index{T\+E\+ST@{T\+E\+ST}!test\+Explore.\+cpp@{test\+Explore.\+cpp}}
+\subsubsection[{\texorpdfstring{T\+E\+S\+T(find\+Obstacle\+Free\+Neighbours, To\+Find\+The\+Obtacle\+Free\+Neighbours)}{TEST(findObstacleFreeNeighbours, ToFindTheObtacleFreeNeighbours)}}]{\setlength{\rightskip}{0pt plus 5cm}T\+E\+ST (
+\begin{DoxyParamCaption}
+\item[{find\+Obstacle\+Free\+Neighbours}]{, }
+\item[{To\+Find\+The\+Obtacle\+Free\+Neighbours}]{}
+\end{DoxyParamCaption}
+)}\hypertarget{testExplore_8cpp_afcc81a2b305ae7087ad05ab6b7fe8c3c}{}\label{testExplore_8cpp_afcc81a2b305ae7087ad05ab6b7fe8c3c}
+
+
+Definition at line 49 of file test\+Explore.\+cpp.
+
+
+
+References explore\+::find\+Obstacle\+Free\+Neighbours().
+
+
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{testExplore_8cpp_afcc81a2b305ae7087ad05ab6b7fe8c3c_cgraph}
+\end{center}
+\end{figure}
+
+
+\index{test\+Explore.\+cpp@{test\+Explore.\+cpp}!T\+E\+ST@{T\+E\+ST}}
+\index{T\+E\+ST@{T\+E\+ST}!test\+Explore.\+cpp@{test\+Explore.\+cpp}}
+\subsubsection[{\texorpdfstring{T\+E\+S\+T(compute\+Shortest\+Path, check\+Return\+Value)}{TEST(computeShortestPath, checkReturnValue)}}]{\setlength{\rightskip}{0pt plus 5cm}T\+E\+ST (
+\begin{DoxyParamCaption}
+\item[{compute\+Shortest\+Path}]{, }
+\item[{check\+Return\+Value}]{}
+\end{DoxyParamCaption}
+)}\hypertarget{testExplore_8cpp_aaff8adb5fb0dfc1232a375f71faea03e}{}\label{testExplore_8cpp_aaff8adb5fb0dfc1232a375f71faea03e}
+
+
+Definition at line 65 of file test\+Explore.\+cpp.
+
+
+
+References explore\+::compute\+Shortest\+Path().
+
+
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{testExplore_8cpp_aaff8adb5fb0dfc1232a375f71faea03e_cgraph}
+\end{center}
+\end{figure}
+
+

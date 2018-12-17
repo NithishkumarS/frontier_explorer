@@ -1,0 +1,14 @@
+<map id="include/BFS.hpp" name="include/BFS.hpp">
+<area shape="rect" id="node2" href="$map_8hpp.html" title="To declare a class which implements the map and processes the frontier. " alt="" coords="416,80,533,107"/>
+<area shape="rect" id="node9" href="$testSensor_8cpp.html" title="To test the class sensor. " alt="" coords="5,229,141,256"/>
+<area shape="rect" id="node10" href="$map_8cpp.html" title="To implementation of the class which implements the map. " alt="" coords="594,155,689,181"/>
+<area shape="rect" id="node11" href="$testMapGen_8cpp.html" title="To test the class mapGen. " alt="" coords="713,155,857,181"/>
+<area shape="rect" id="node12" href="$BFS_8cpp.html" title="src/BFS.cpp" alt="" coords="706,80,801,107"/>
+<area shape="rect" id="node13" href="$testBFS_8cpp.html" title="test/testBFS.cpp" alt="" coords="825,80,946,107"/>
+<area shape="rect" id="node3" href="$explore_8hpp.html" title="a class to explores the map " alt="" coords="383,155,518,181"/>
+<area shape="rect" id="node5" href="$src_2main_8cpp.html" title="src/main.cpp" alt="" coords="298,229,395,256"/>
+<area shape="rect" id="node6" href="$testExplore_8cpp.html" title="To test the class explore. " alt="" coords="555,229,693,256"/>
+<area shape="rect" id="node7" href="$sensor_8hpp.html" title="To declare a class which implements radiation sensor module. " alt="" coords="175,155,305,181"/>
+<area shape="rect" id="node4" href="$explore_8cpp.html" title="To implement the function of the class BFS. " alt="" coords="419,229,530,256"/>
+<area shape="rect" id="node8" href="$sensor_8cpp.html" title="src/sensor.cpp" alt="" coords="166,229,274,256"/>
+</map>

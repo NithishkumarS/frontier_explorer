@@ -1,0 +1,299 @@
+\hypertarget{classBFS}{}\section{B\+FS Class Reference}
+\label{classBFS}\index{B\+FS@{B\+FS}}
+
+
+Class to implement the \hyperlink{classBFS}{B\+FS}.  
+
+
+
+
+{\ttfamily \#include $<$B\+F\+S.\+hpp$>$}
+
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classBFS_aab80c2b3194c3c50281ed397e5fa82e1}{B\+FS} (int, int)
+\begin{DoxyCompactList}\small\item\em Constructor for the class \hyperlink{classBFS}{B\+FS}. \end{DoxyCompactList}\item 
+std\+::queue$<$ std\+::vector$<$ int $>$ $>$ \hyperlink{classBFS_a569f5936b7d708e928f6477548ffcdd2}{compute\+B\+FS} (const std\+::queue$<$ std\+::vector$<$ int $>$$>$ \&, std\+::vector$<$ int $>$)
+\begin{DoxyCompactList}\small\item\em function to compute \hyperlink{classBFS}{B\+FS} \end{DoxyCompactList}\item 
+void \hyperlink{classBFS_a099fc340466239bed3cb23bcf3c6eeae}{neighbour\+List} (const std\+::vector$<$ std\+::vector$<$ int $>$ $>$ \&, std\+::vector$<$ int $>$, std\+::queue$<$ std\+::vector$<$ int $>$ $>$ \&)
+\begin{DoxyCompactList}\small\item\em function to estimate the neighbouring node \end{DoxyCompactList}\item 
+int \hyperlink{classBFS_af170bc63c82b8e814df7fd6a035303cc}{get\+Explored} (int, int)
+\begin{DoxyCompactList}\small\item\em function to get the explored value of a specific grid \end{DoxyCompactList}\item 
+int \hyperlink{classBFS_a59c2fa43dd3f00bc0524d264338da1d5}{get\+Distance} (int, int)
+\begin{DoxyCompactList}\small\item\em function to get the distance value of a specific grid \end{DoxyCompactList}\item 
+\hyperlink{classBFS_a49eae2c37b1083d19f70640f0848b1cd}{$\sim$\+B\+FS} ()
+\begin{DoxyCompactList}\small\item\em class destructor \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+std\+::queue$<$ std\+::vector$<$ int $>$ $>$ \hyperlink{classBFS_a408e3b926379694275b0a1c967c12839}{p\+Queue}
+\item 
+std\+::vector$<$ std\+::vector$<$ int $>$ $>$ \hyperlink{classBFS_afe579e465bd78cca7566530b0e006df2}{distance}
+\item 
+std\+::vector$<$ std\+::vector$<$ int $>$ $>$ \hyperlink{classBFS_a2e5bcb2d5e51e544bbd5de47a470186d}{explored}
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Class to implement the \hyperlink{classBFS}{B\+FS}. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em p\+Queue} & queue to store the coordinates \\
+\hline
+{\em distance} & euclidean distance from the start node \\
+\hline
+{\em explored} & visited node in the occupancy grid\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+None 
+\end{DoxyReturn}
+
+
+Definition at line 52 of file B\+F\+S.\+hpp.
+
+
+
+\subsection{Constructor \& Destructor Documentation}
+\index{B\+FS@{B\+FS}!B\+FS@{B\+FS}}
+\index{B\+FS@{B\+FS}!B\+FS@{B\+FS}}
+\subsubsection[{\texorpdfstring{B\+F\+S(int, int)}{BFS(int, int)}}]{\setlength{\rightskip}{0pt plus 5cm}B\+F\+S\+::\+B\+FS (
+\begin{DoxyParamCaption}
+\item[{int}]{rows, }
+\item[{int}]{cols}
+\end{DoxyParamCaption}
+)}\hypertarget{classBFS_aab80c2b3194c3c50281ed397e5fa82e1}{}\label{classBFS_aab80c2b3194c3c50281ed397e5fa82e1}
+
+
+Constructor for the class \hyperlink{classBFS}{B\+FS}. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em cols} & column to resize the explored and distance \\
+\hline
+{\em rows} & row to resize the explored and distance\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+None 
+\end{DoxyReturn}
+
+
+Definition at line 47 of file B\+F\+S.\+cpp.
+
+
+
+References distance, and explored.
+
+\index{B\+FS@{B\+FS}!````~B\+FS@{$\sim$\+B\+FS}}
+\index{````~B\+FS@{$\sim$\+B\+FS}!B\+FS@{B\+FS}}
+\subsubsection[{\texorpdfstring{$\sim$\+B\+F\+S()}{~BFS()}}]{\setlength{\rightskip}{0pt plus 5cm}B\+F\+S\+::$\sim$\+B\+FS (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\hypertarget{classBFS_a49eae2c37b1083d19f70640f0848b1cd}{}\label{classBFS_a49eae2c37b1083d19f70640f0848b1cd}
+
+
+class destructor 
+
+\begin{DoxyReturn}{Returns}
+None 
+\end{DoxyReturn}
+
+
+Definition at line 148 of file B\+F\+S.\+cpp.
+
+
+
+\subsection{Member Function Documentation}
+\index{B\+FS@{B\+FS}!compute\+B\+FS@{compute\+B\+FS}}
+\index{compute\+B\+FS@{compute\+B\+FS}!B\+FS@{B\+FS}}
+\subsubsection[{\texorpdfstring{compute\+B\+F\+S(const std\+::queue$<$ std\+::vector$<$ int $>$$>$ \&, std\+::vector$<$ int $>$)}{computeBFS(const std::queue< std::vector< int >> &, std::vector< int >)}}]{\setlength{\rightskip}{0pt plus 5cm}std\+::queue$<$ std\+::vector$<$ int $>$ $>$ B\+F\+S\+::compute\+B\+FS (
+\begin{DoxyParamCaption}
+\item[{const std\+::queue$<$ std\+::vector$<$ int $>$$>$ \&}]{, }
+\item[{std\+::vector$<$ int $>$}]{}
+\end{DoxyParamCaption}
+)}\hypertarget{classBFS_a569f5936b7d708e928f6477548ffcdd2}{}\label{classBFS_a569f5936b7d708e928f6477548ffcdd2}
+
+
+function to compute \hyperlink{classBFS}{B\+FS} 
+
+
+\begin{DoxyParams}{Parameters}
+{\em frontier\+Queue} & contains list of all frontiers \\
+\hline
+{\em start} & point of the turtlebot\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+frontiers Queue to store all the frontiers 
+\end{DoxyReturn}
+
+
+Definition at line 102 of file B\+F\+S.\+cpp.
+
+
+
+References distance, explored, neighbour\+List(), and p\+Queue.
+
+
+
+Referenced by map\+::frontier\+Search(), and T\+E\+S\+T().
+
+
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=315pt]{classBFS_a569f5936b7d708e928f6477548ffcdd2_cgraph}
+\end{center}
+\end{figure}
+
+
+\index{B\+FS@{B\+FS}!get\+Distance@{get\+Distance}}
+\index{get\+Distance@{get\+Distance}!B\+FS@{B\+FS}}
+\subsubsection[{\texorpdfstring{get\+Distance(int, int)}{getDistance(int, int)}}]{\setlength{\rightskip}{0pt plus 5cm}int B\+F\+S\+::get\+Distance (
+\begin{DoxyParamCaption}
+\item[{int}]{x, }
+\item[{int}]{y}
+\end{DoxyParamCaption}
+)}\hypertarget{classBFS_a59c2fa43dd3f00bc0524d264338da1d5}{}\label{classBFS_a59c2fa43dd3f00bc0524d264338da1d5}
+
+
+function to get the distance value of a specific grid 
+
+
+\begin{DoxyParams}{Parameters}
+{\em x} & x-\/position of the grid \\
+\hline
+{\em y} & y-\/position of the grid\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+integer value of distance grid for the x and y coordinates 
+\end{DoxyReturn}
+
+
+Definition at line 71 of file B\+F\+S.\+cpp.
+
+
+
+References distance.
+
+
+
+Referenced by T\+E\+S\+T().
+
+\index{B\+FS@{B\+FS}!get\+Explored@{get\+Explored}}
+\index{get\+Explored@{get\+Explored}!B\+FS@{B\+FS}}
+\subsubsection[{\texorpdfstring{get\+Explored(int, int)}{getExplored(int, int)}}]{\setlength{\rightskip}{0pt plus 5cm}int B\+F\+S\+::get\+Explored (
+\begin{DoxyParamCaption}
+\item[{int}]{x, }
+\item[{int}]{y}
+\end{DoxyParamCaption}
+)}\hypertarget{classBFS_af170bc63c82b8e814df7fd6a035303cc}{}\label{classBFS_af170bc63c82b8e814df7fd6a035303cc}
+
+
+function to get the explored value of a specific grid 
+
+
+\begin{DoxyParams}{Parameters}
+{\em x} & x-\/position of the grid \\
+\hline
+{\em y} & y-\/position of the grid\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+integer value of explored grid for the x and y coordinates 
+\end{DoxyReturn}
+
+
+Definition at line 66 of file B\+F\+S.\+cpp.
+
+
+
+References explored.
+
+
+
+Referenced by T\+E\+S\+T().
+
+\index{B\+FS@{B\+FS}!neighbour\+List@{neighbour\+List}}
+\index{neighbour\+List@{neighbour\+List}!B\+FS@{B\+FS}}
+\subsubsection[{\texorpdfstring{neighbour\+List(const std\+::vector$<$ std\+::vector$<$ int $>$ $>$ \&, std\+::vector$<$ int $>$, std\+::queue$<$ std\+::vector$<$ int $>$ $>$ \&)}{neighbourList(const std::vector< std::vector< int > > &, std::vector< int >, std::queue< std::vector< int > > &)}}]{\setlength{\rightskip}{0pt plus 5cm}void B\+F\+S\+::neighbour\+List (
+\begin{DoxyParamCaption}
+\item[{const std\+::vector$<$ std\+::vector$<$ int $>$ $>$ \&}]{, }
+\item[{std\+::vector$<$ int $>$}]{, }
+\item[{std\+::queue$<$ std\+::vector$<$ int $>$ $>$ \&}]{}
+\end{DoxyParamCaption}
+)}\hypertarget{classBFS_a099fc340466239bed3cb23bcf3c6eeae}{}\label{classBFS_a099fc340466239bed3cb23bcf3c6eeae}
+
+
+function to estimate the neighbouring node 
+
+
+\begin{DoxyParams}{Parameters}
+{\em frontier} & vector \\
+\hline
+{\em vector} & coordinate to which neighbouring node has to found out \\
+\hline
+{\em list} & of all neighbouring node of the given coordinate\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+frontiers Queue to store all the frontiers 
+\end{DoxyReturn}
+
+
+Definition at line 76 of file B\+F\+S.\+cpp.
+
+
+
+Referenced by compute\+B\+F\+S(), and T\+E\+S\+T().
+
+
+
+\subsection{Member Data Documentation}
+\index{B\+FS@{B\+FS}!distance@{distance}}
+\index{distance@{distance}!B\+FS@{B\+FS}}
+\subsubsection[{\texorpdfstring{distance}{distance}}]{\setlength{\rightskip}{0pt plus 5cm}std\+::vector$<$std\+::vector$<$int$>$ $>$ B\+F\+S\+::distance\hspace{0.3cm}{\ttfamily [private]}}\hypertarget{classBFS_afe579e465bd78cca7566530b0e006df2}{}\label{classBFS_afe579e465bd78cca7566530b0e006df2}
+
+
+Definition at line 57 of file B\+F\+S.\+hpp.
+
+
+
+Referenced by B\+F\+S(), compute\+B\+F\+S(), and get\+Distance().
+
+\index{B\+FS@{B\+FS}!explored@{explored}}
+\index{explored@{explored}!B\+FS@{B\+FS}}
+\subsubsection[{\texorpdfstring{explored}{explored}}]{\setlength{\rightskip}{0pt plus 5cm}std\+::vector$<$std\+::vector$<$int$>$ $>$ B\+F\+S\+::explored\hspace{0.3cm}{\ttfamily [private]}}\hypertarget{classBFS_a2e5bcb2d5e51e544bbd5de47a470186d}{}\label{classBFS_a2e5bcb2d5e51e544bbd5de47a470186d}
+
+
+Definition at line 59 of file B\+F\+S.\+hpp.
+
+
+
+Referenced by B\+F\+S(), compute\+B\+F\+S(), and get\+Explored().
+
+\index{B\+FS@{B\+FS}!p\+Queue@{p\+Queue}}
+\index{p\+Queue@{p\+Queue}!B\+FS@{B\+FS}}
+\subsubsection[{\texorpdfstring{p\+Queue}{pQueue}}]{\setlength{\rightskip}{0pt plus 5cm}std\+::queue$<$std\+::vector$<$int$>$ $>$ B\+F\+S\+::p\+Queue\hspace{0.3cm}{\ttfamily [private]}}\hypertarget{classBFS_a408e3b926379694275b0a1c967c12839}{}\label{classBFS_a408e3b926379694275b0a1c967c12839}
+
+
+Definition at line 55 of file B\+F\+S.\+hpp.
+
+
+
+Referenced by compute\+B\+F\+S().
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+include/\hyperlink{BFS_8hpp}{B\+F\+S.\+hpp}\item 
+src/\hyperlink{BFS_8cpp}{B\+F\+S.\+cpp}\end{DoxyCompactItemize}

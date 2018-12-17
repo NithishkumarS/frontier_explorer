@@ -1,0 +1,307 @@
+\hypertarget{classexplore}{}\section{explore Class Reference}
+\label{classexplore}\index{explore@{explore}}
+
+
+Class to implement the \hyperlink{classBFS}{B\+FS}.  
+
+
+
+
+{\ttfamily \#include $<$explore.\+hpp$>$}
+
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classexplore_a1f0ce75d7c2beafbcd80320379788e7d}{explore} ()
+\begin{DoxyCompactList}\small\item\em class constructor \end{DoxyCompactList}\item 
+void \hyperlink{classexplore_a1e21ba2b5ae23bed33de7856e1418b64}{path\+Search} (std\+::vector$<$ int $>$, std\+::vector$<$ int $>$, \hyperlink{classmap}{map} \&)
+\begin{DoxyCompactList}\small\item\em path\+Search to find the path to the goal \end{DoxyCompactList}\item 
+bool \hyperlink{classexplore_a402fe39518e7024b1f49cd000c1620ed}{compute\+Shortest\+Path} (std\+::vector$<$ int $>$, std\+::vector$<$ int $>$, std\+::vector$<$ std\+::vector$<$ int $>$ $>$ \&, \hyperlink{classmap}{map} \&)
+\begin{DoxyCompactList}\small\item\em function to compute the shortest path using \hyperlink{classBFS}{B\+FS} \end{DoxyCompactList}\item 
+void \hyperlink{classexplore_ab529fa2c030a29a5ac687b26b61b0663}{find\+Obstacle\+Free\+Neighbours} (std\+::vector$<$ int $>$, std\+::queue$<$ std\+::vector$<$ int $>$ $>$ \&, \hyperlink{classmap}{map} \&)
+\begin{DoxyCompactList}\small\item\em function to find the neighbour of the given point which is without the obstacle \end{DoxyCompactList}\item 
+bool \hyperlink{classexplore_a668d5b972220ff43b4680beb1e889dd4}{navigate} (float, \hyperlink{classmap}{map} \&, std\+::vector$<$ int $>$)
+\begin{DoxyCompactList}\small\item\em function to publish goal to the move base topic \end{DoxyCompactList}\item 
+\hyperlink{classexplore_a65b7817d6755089698fa978f9e273750}{$\sim$explore} ()
+\begin{DoxyCompactList}\small\item\em class destructor \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+std\+::vector$<$ std\+::vector$<$ int $>$ $>$ \hyperlink{classexplore_a3cb0f00e270d2da0bf7a3c1335f03cc4}{path}
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Class to implement the \hyperlink{classBFS}{B\+FS}. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em path} & vector to store the path\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+None 
+\end{DoxyReturn}
+
+
+Definition at line 54 of file explore.\+hpp.
+
+
+
+\subsection{Constructor \& Destructor Documentation}
+\index{explore@{explore}!explore@{explore}}
+\index{explore@{explore}!explore@{explore}}
+\subsubsection[{\texorpdfstring{explore()}{explore()}}]{\setlength{\rightskip}{0pt plus 5cm}explore\+::explore (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\hypertarget{classexplore_a1f0ce75d7c2beafbcd80320379788e7d}{}\label{classexplore_a1f0ce75d7c2beafbcd80320379788e7d}
+
+
+class constructor 
+
+\begin{DoxyReturn}{Returns}
+None 
+\end{DoxyReturn}
+
+
+Definition at line 51 of file explore.\+cpp.
+
+\index{explore@{explore}!````~explore@{$\sim$explore}}
+\index{````~explore@{$\sim$explore}!explore@{explore}}
+\subsubsection[{\texorpdfstring{$\sim$explore()}{~explore()}}]{\setlength{\rightskip}{0pt plus 5cm}explore\+::$\sim$explore (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\hypertarget{classexplore_a65b7817d6755089698fa978f9e273750}{}\label{classexplore_a65b7817d6755089698fa978f9e273750}
+
+
+class destructor 
+
+\begin{DoxyReturn}{Returns}
+None 
+\end{DoxyReturn}
+
+
+Definition at line 250 of file explore.\+cpp.
+
+
+
+\subsection{Member Function Documentation}
+\index{explore@{explore}!compute\+Shortest\+Path@{compute\+Shortest\+Path}}
+\index{compute\+Shortest\+Path@{compute\+Shortest\+Path}!explore@{explore}}
+\subsubsection[{\texorpdfstring{compute\+Shortest\+Path(std\+::vector$<$ int $>$, std\+::vector$<$ int $>$, std\+::vector$<$ std\+::vector$<$ int $>$ $>$ \&, map \&)}{computeShortestPath(std::vector< int >, std::vector< int >, std::vector< std::vector< int > > &, map &)}}]{\setlength{\rightskip}{0pt plus 5cm}bool explore\+::compute\+Shortest\+Path (
+\begin{DoxyParamCaption}
+\item[{std\+::vector$<$ int $>$}]{start, }
+\item[{std\+::vector$<$ int $>$}]{End, }
+\item[{std\+::vector$<$ std\+::vector$<$ int $>$ $>$ \&}]{path1, }
+\item[{{\bf map} \&}]{obj}
+\end{DoxyParamCaption}
+)}\hypertarget{classexplore_a402fe39518e7024b1f49cd000c1620ed}{}\label{classexplore_a402fe39518e7024b1f49cd000c1620ed}
+
+
+function to compute the shortest path using \hyperlink{classBFS}{B\+FS} 
+
+
+\begin{DoxyParams}{Parameters}
+{\em start} & vector contains the start point for the path \\
+\hline
+{\em end} & vector contains the end point for the path \\
+\hline
+{\em path} & that stores the path to the goal \\
+\hline
+{\em map} & Object to get the rows, grid value and column\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+bool 
+\end{DoxyReturn}
+
+
+Definition at line 83 of file explore.\+cpp.
+
+
+
+References find\+Obstacle\+Free\+Neighbours(), path, map\+::return\+Cols(), and map\+::return\+Rows().
+
+
+
+Referenced by path\+Search(), and T\+E\+S\+T().
+
+
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classexplore_a402fe39518e7024b1f49cd000c1620ed_cgraph}
+\end{center}
+\end{figure}
+
+
+\index{explore@{explore}!find\+Obstacle\+Free\+Neighbours@{find\+Obstacle\+Free\+Neighbours}}
+\index{find\+Obstacle\+Free\+Neighbours@{find\+Obstacle\+Free\+Neighbours}!explore@{explore}}
+\subsubsection[{\texorpdfstring{find\+Obstacle\+Free\+Neighbours(std\+::vector$<$ int $>$, std\+::queue$<$ std\+::vector$<$ int $>$ $>$ \&, map \&)}{findObstacleFreeNeighbours(std::vector< int >, std::queue< std::vector< int > > &, map &)}}]{\setlength{\rightskip}{0pt plus 5cm}void explore\+::find\+Obstacle\+Free\+Neighbours (
+\begin{DoxyParamCaption}
+\item[{std\+::vector$<$ int $>$}]{v, }
+\item[{std\+::queue$<$ std\+::vector$<$ int $>$ $>$ \&}]{list, }
+\item[{{\bf map} \&}]{obj}
+\end{DoxyParamCaption}
+)}\hypertarget{classexplore_ab529fa2c030a29a5ac687b26b61b0663}{}\label{classexplore_ab529fa2c030a29a5ac687b26b61b0663}
+
+
+function to find the neighbour of the given point which is without the obstacle 
+
+
+\begin{DoxyParams}{Parameters}
+{\em v} & vector contains the point to which neighbour has to be found \\
+\hline
+{\em list} & is a queue contains the list of neighbour \\
+\hline
+{\em map} & Object to get rows and columns\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+None 
+\end{DoxyReturn}
+
+
+Definition at line 54 of file explore.\+cpp.
+
+
+
+References map\+::get\+Grid\+Value(), map\+::return\+Cols(), and map\+::return\+Rows().
+
+
+
+Referenced by compute\+Shortest\+Path(), and T\+E\+S\+T().
+
+
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=342pt]{classexplore_ab529fa2c030a29a5ac687b26b61b0663_cgraph}
+\end{center}
+\end{figure}
+
+
+\index{explore@{explore}!navigate@{navigate}}
+\index{navigate@{navigate}!explore@{explore}}
+\subsubsection[{\texorpdfstring{navigate(float, map \&, std\+::vector$<$ int $>$)}{navigate(float, map &, std::vector< int >)}}]{\setlength{\rightskip}{0pt plus 5cm}bool explore\+::navigate (
+\begin{DoxyParamCaption}
+\item[{float}]{resolution, }
+\item[{{\bf map} \&}]{obj, }
+\item[{std\+::vector$<$ int $>$}]{pos}
+\end{DoxyParamCaption}
+)}\hypertarget{classexplore_a668d5b972220ff43b4680beb1e889dd4}{}\label{classexplore_a668d5b972220ff43b4680beb1e889dd4}
+
+
+function to publish goal to the move base topic 
+
+
+\begin{DoxyParams}{Parameters}
+{\em resolution} & is a float that contains the resolution of the map \\
+\hline
+{\em map} & Object to get the rows, column\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+bool whether it has reached the target or not 
+\end{DoxyReturn}
+
+
+Definition at line 165 of file explore.\+cpp.
+
+
+
+References path, map\+::return\+Cols(), and map\+::return\+Rows().
+
+
+
+Referenced by main().
+
+
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=299pt]{classexplore_a668d5b972220ff43b4680beb1e889dd4_cgraph}
+\end{center}
+\end{figure}
+
+
+\index{explore@{explore}!path\+Search@{path\+Search}}
+\index{path\+Search@{path\+Search}!explore@{explore}}
+\subsubsection[{\texorpdfstring{path\+Search(std\+::vector$<$ int $>$, std\+::vector$<$ int $>$, map \&)}{pathSearch(std::vector< int >, std::vector< int >, map &)}}]{\setlength{\rightskip}{0pt plus 5cm}void explore\+::path\+Search (
+\begin{DoxyParamCaption}
+\item[{std\+::vector$<$ int $>$}]{start, }
+\item[{std\+::vector$<$ int $>$}]{end, }
+\item[{{\bf map} \&}]{obj}
+\end{DoxyParamCaption}
+)}\hypertarget{classexplore_a1e21ba2b5ae23bed33de7856e1418b64}{}\label{classexplore_a1e21ba2b5ae23bed33de7856e1418b64}
+
+
+path\+Search to find the path to the goal 
+
+
+\begin{DoxyParams}{Parameters}
+{\em start} & contains the start point for the path \\
+\hline
+{\em end} & contains the end point for the path \\
+\hline
+{\em map} & object to get rows and columns\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+None 
+\end{DoxyReturn}
+
+
+Definition at line 155 of file explore.\+cpp.
+
+
+
+References compute\+Shortest\+Path(), and path.
+
+
+
+Referenced by main().
+
+
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classexplore_a1e21ba2b5ae23bed33de7856e1418b64_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+\subsection{Member Data Documentation}
+\index{explore@{explore}!path@{path}}
+\index{path@{path}!explore@{explore}}
+\subsubsection[{\texorpdfstring{path}{path}}]{\setlength{\rightskip}{0pt plus 5cm}std\+::vector$<$std\+::vector$<$int$>$ $>$ explore\+::path\hspace{0.3cm}{\ttfamily [private]}}\hypertarget{classexplore_a3cb0f00e270d2da0bf7a3c1335f03cc4}{}\label{classexplore_a3cb0f00e270d2da0bf7a3c1335f03cc4}
+
+
+Definition at line 57 of file explore.\+hpp.
+
+
+
+Referenced by compute\+Shortest\+Path(), navigate(), and path\+Search().
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+include/\hyperlink{explore_8hpp}{explore.\+hpp}\item 
+src/\hyperlink{explore_8cpp}{explore.\+cpp}\end{DoxyCompactItemize}

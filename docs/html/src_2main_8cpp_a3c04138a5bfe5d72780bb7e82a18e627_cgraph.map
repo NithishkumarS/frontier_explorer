@@ -1,0 +1,22 @@
+<map id="main" name="main">
+<area shape="rect" id="node2" href="$classmap.html#acaa7a0726870c1d08c75b3f84caa298b" title="Function to search frontiers in the map. " alt="" coords="125,89,261,116"/>
+<area shape="rect" id="node9" href="$classmap.html#abd2282cb63fd166dbf2e90f78f610953" title="Function to return resolution of the map. " alt="" coords="125,140,260,167"/>
+<area shape="rect" id="node10" href="$classmap.html#a51047b6cd09491df72de1447c7c99431" title="Function to return origin. " alt="" coords="142,191,243,217"/>
+<area shape="rect" id="node11" href="$classexplore.html#a668d5b972220ff43b4680beb1e889dd4" title="function to publish goal to the move base topic " alt="" coords="601,399,722,425"/>
+<area shape="rect" id="node12" href="$classmap.html#abffb3a9e6f9e18a73695b62e42d0811c" title="Function to return coloumn size. " alt="" coords="803,235,917,261"/>
+<area shape="rect" id="node13" href="$classmap.html#a665740b6cec1d2fac63bf1a9985e9628" title="Function to return row size. " alt="" coords="799,373,921,400"/>
+<area shape="rect" id="node14" href="$classmap.html#a69743a83eb45ec5cef3fbc07aae26427" title="Function to find the point closest to computed centroid. " alt="" coords="119,461,266,488"/>
+<area shape="rect" id="node15" href="$classexplore.html#a1e21ba2b5ae23bed33de7856e1418b64" title="pathSearch to find the path to the goal " alt="" coords="123,297,262,324"/>
+<area shape="rect" id="node19" href="$classmap.html#ad0c8afa9f68ede5257f5b7b2d33b093f" title="Function to request map from gmapping node. " alt="" coords="131,512,254,539"/>
+<area shape="rect" id="node21" href="$classsensor.html#aa7aac0b5dca04e72e9334457a3cbd498" title="Class to save the radiation data as ppm file. " alt="" coords="104,563,281,589"/>
+<area shape="rect" id="node3" href="$classmap.html#abedfe6722ad83929739afd899c88fea4" title="Constructor for the class map. " alt="" coords="389,157,469,184"/>
+<area shape="rect" id="node4" href="$classmap.html#a5e55d5c21318b0036147b9ea558c6983" title="Function to check if the neighbour&#39;s grid value. " alt="" coords="354,5,503,32"/>
+<area shape="rect" id="node5" href="$classBFS.html#a569f5936b7d708e928f6477548ffcdd2" title="function to compute BFS " alt="" coords="363,56,495,83"/>
+<area shape="rect" id="node7" href="$classmap.html#ad07d469282f85b48d181e530a886b335" title="Function to compute the centroid of the frontier. " alt="" coords="329,107,528,133"/>
+<area shape="rect" id="node6" href="$classBFS.html#a099fc340466239bed3cb23bcf3c6eeae" title="function to estimate the neighbouring node " alt="" coords="595,56,728,83"/>
+<area shape="rect" id="node8" href="$classmap.html#a300d8aaac77b805595e640205aad1cb0" title="Function to find the point closest to computed centroid. " alt="" coords="612,107,711,133"/>
+<area shape="rect" id="node16" href="$classexplore.html#a402fe39518e7024b1f49cd000c1620ed" title="function to compute the shortest path using BFS " alt="" coords="329,291,528,317"/>
+<area shape="rect" id="node17" href="$classexplore.html#ab529fa2c030a29a5ac687b26b61b0663" title="function to find the neighbour of the given point which is without the obstacle " alt="" coords="576,282,747,323"/>
+<area shape="rect" id="node18" href="$classmap.html#a696bcdd2197355d1ff65e6fdf90cad46" title="Function to return the grid value. " alt="" coords="795,289,925,316"/>
+<area shape="rect" id="node20" href="$classmap.html#ad3a6b0b96fc74179816e7a4ed785fc4d" title="CallBack function for the map subscriber. " alt="" coords="365,512,493,539"/>
+</map>

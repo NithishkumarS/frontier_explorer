@@ -1,0 +1,8 @@
+<map id="map::frontierSearch" name="map::frontierSearch">
+<area shape="rect" id="node2" href="$classmap.html#a5e55d5c21318b0036147b9ea558c6983" title="Function to check if the neighbour&#39;s grid value. " alt="" coords="214,5,363,32"/>
+<area shape="rect" id="node3" href="$classBFS.html#a569f5936b7d708e928f6477548ffcdd2" title="function to compute BFS " alt="" coords="223,56,355,83"/>
+<area shape="rect" id="node5" href="$classmap.html#ad07d469282f85b48d181e530a886b335" title="Function to compute the centroid of the frontier. " alt="" coords="189,107,388,133"/>
+<area shape="rect" id="node7" href="$classmap.html#abedfe6722ad83929739afd899c88fea4" title="Constructor for the class map. " alt="" coords="249,157,329,184"/>
+<area shape="rect" id="node4" href="$classBFS.html#a099fc340466239bed3cb23bcf3c6eeae" title="function to estimate the neighbouring node " alt="" coords="436,56,569,83"/>
+<area shape="rect" id="node6" href="$classmap.html#a300d8aaac77b805595e640205aad1cb0" title="Function to find the point closest to computed centroid. " alt="" coords="453,107,552,133"/>
+</map>

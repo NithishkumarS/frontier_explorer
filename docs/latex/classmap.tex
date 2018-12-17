@@ -1,0 +1,717 @@
+\hypertarget{classmap}{}\section{map Class Reference}
+\label{classmap}\index{map@{map}}
+
+
+Class to implement the M\+AP.  
+
+
+
+
+{\ttfamily \#include $<$map.\+hpp$>$}
+
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classmap_abedfe6722ad83929739afd899c88fea4}{map} ()
+\begin{DoxyCompactList}\small\item\em Constructor for the class map. \end{DoxyCompactList}\item 
+void \hyperlink{classmap_acaa7a0726870c1d08c75b3f84caa298b}{frontier\+Search} (int, int)
+\begin{DoxyCompactList}\small\item\em Function to search frontiers in the map. \end{DoxyCompactList}\item 
+bool \hyperlink{classmap_a5e55d5c21318b0036147b9ea558c6983}{check\+Neighbour} (int, int, int)
+\begin{DoxyCompactList}\small\item\em Function to check if the neighbour\textquotesingle{}s grid value. \end{DoxyCompactList}\item 
+std\+::vector$<$ int $>$ \hyperlink{classmap_ad07d469282f85b48d181e530a886b335}{compute\+Frontier\+Centroid} (const std\+::queue$<$ std\+::vector$<$ int $>$$>$ \&)
+\begin{DoxyCompactList}\small\item\em Function to compute the centroid of the frontier. \end{DoxyCompactList}\item 
+std\+::vector$<$ int $>$ \hyperlink{classmap_a300d8aaac77b805595e640205aad1cb0}{nearest} (const std\+::queue$<$ std\+::vector$<$ int $>$$>$ \&, int, int)
+\begin{DoxyCompactList}\small\item\em Function to find the point closest to computed centroid. \end{DoxyCompactList}\item 
+bool \hyperlink{classmap_ad0c8afa9f68ede5257f5b7b2d33b093f}{request\+Map} (ros\+::\+Node\+Handle \&)
+\begin{DoxyCompactList}\small\item\em Function to request map from gmapping node. \end{DoxyCompactList}\item 
+void \hyperlink{classmap_ad3a6b0b96fc74179816e7a4ed785fc4d}{mapcallback} (const nav\+\_\+msgs\+::\+Occupancy\+Grid \&msg)
+\begin{DoxyCompactList}\small\item\em Call\+Back function for the map subscriber. \end{DoxyCompactList}\item 
+std\+::vector$<$ int $>$ \hyperlink{classmap_a69743a83eb45ec5cef3fbc07aae26427}{nearest\+Centroid} (int, int)
+\begin{DoxyCompactList}\small\item\em Function to find the point closest to computed centroid. \end{DoxyCompactList}\item 
+int \hyperlink{classmap_a696bcdd2197355d1ff65e6fdf90cad46}{get\+Grid\+Value} (int, int)
+\begin{DoxyCompactList}\small\item\em Function to return the grid value. \end{DoxyCompactList}\item 
+int \hyperlink{classmap_af9092b505e0d7f793322c7a481e3ca88}{get\+Centroid\+Size} ()
+\begin{DoxyCompactList}\small\item\em Function to return the size of centroid queue. \end{DoxyCompactList}\item 
+int \hyperlink{classmap_a665740b6cec1d2fac63bf1a9985e9628}{return\+Rows} ()
+\begin{DoxyCompactList}\small\item\em Function to return row size. \end{DoxyCompactList}\item 
+int \hyperlink{classmap_abffb3a9e6f9e18a73695b62e42d0811c}{return\+Cols} ()
+\begin{DoxyCompactList}\small\item\em Function to return coloumn size. \end{DoxyCompactList}\item 
+float \hyperlink{classmap_abd2282cb63fd166dbf2e90f78f610953}{get\+Resolution} ()
+\begin{DoxyCompactList}\small\item\em Function to return resolution of the map. \end{DoxyCompactList}\item 
+std\+::vector$<$ int $>$ \hyperlink{classmap_a51047b6cd09491df72de1447c7c99431}{get\+Start} ()
+\begin{DoxyCompactList}\small\item\em Function to return origin. \end{DoxyCompactList}\item 
+\hyperlink{classmap_a0cc22df7b44f7835fa10ed241848b041}{$\sim$map} ()
+\begin{DoxyCompactList}\small\item\em Destructor for the class map. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+std\+::vector$<$ int $>$ \hyperlink{classmap_a73ea3c7b79de5a8b5733b7babc21e68b}{start}
+\end{DoxyCompactItemize}
+\subsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+std\+::queue$<$ std\+::vector$<$ int $>$ $>$ \hyperlink{classmap_ad3683241c11549fa2888eadf3465857f}{frontier\+Queue}
+\item 
+std\+::queue$<$ std\+::vector$<$ int $>$ $>$ \hyperlink{classmap_a8fe868100933bfd68b502b68d42f1883}{centroid\+Queue}
+\item 
+std\+::queue$<$ std\+::vector$<$ int $>$ $>$ \hyperlink{classmap_ad8a2f40c1520dd9f0f5337abbf81e64f}{explored}
+\item 
+std\+::vector$<$ std\+::vector$<$ int $>$ $>$ \hyperlink{classmap_a43036b0bcee6beeb4e8f4dfc5019e5fb}{grid}
+\item 
+int \hyperlink{classmap_a2ee828fe96a115fe070e8ff8eea7b488}{rows}
+\item 
+int \hyperlink{classmap_ad82f9850ab232d78d0cac14c5e6a752f}{cols}
+\item 
+float \hyperlink{classmap_ab2c38de30b06b80ec0a6ce646056d33a}{map\+Resolution}
+\item 
+ros\+::\+Subscriber \hyperlink{classmap_ae40cfd9b303640dfc7a56e198056d2a0}{O\+G\+M\+\_\+subscriber}
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Class to implement the M\+AP. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em frontier} & queue to hold the frontier points \\
+\hline
+{\em Centroid} & queue to hold the centroid of individual frontiers \\
+\hline
+{\em grid} & the map as 2d vector \\
+\hline
+{\em row} & integer with row size of grid \\
+\hline
+{\em cols} & integer with coloumn size of grid \\
+\hline
+{\em map\+Resolution} & integer with resolution of grid \\
+\hline
+{\em O\+G\+M\+\_\+\+Subscriber} & is the subscriber handle for /\+Map \\
+\hline
+{\em start} & vector containing the origin \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+none 
+\end{DoxyReturn}
+
+
+Definition at line 63 of file map.\+hpp.
+
+
+
+\subsection{Constructor \& Destructor Documentation}
+\index{map@{map}!map@{map}}
+\index{map@{map}!map@{map}}
+\subsubsection[{\texorpdfstring{map()}{map()}}]{\setlength{\rightskip}{0pt plus 5cm}map\+::map (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\hypertarget{classmap_abedfe6722ad83929739afd899c88fea4}{}\label{classmap_abedfe6722ad83929739afd899c88fea4}
+
+
+Constructor for the class map. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em None} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+None 
+\end{DoxyReturn}
+
+
+Definition at line 51 of file map.\+cpp.
+
+
+
+References cols, grid, map\+Resolution, and rows.
+
+
+
+Referenced by frontier\+Search().
+
+\index{map@{map}!````~map@{$\sim$map}}
+\index{````~map@{$\sim$map}!map@{map}}
+\subsubsection[{\texorpdfstring{$\sim$map()}{~map()}}]{\setlength{\rightskip}{0pt plus 5cm}map\+::$\sim$map (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\hypertarget{classmap_a0cc22df7b44f7835fa10ed241848b041}{}\label{classmap_a0cc22df7b44f7835fa10ed241848b041}
+
+
+Destructor for the class map. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em None} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+None 
+\end{DoxyReturn}
+
+
+Definition at line 284 of file map.\+cpp.
+
+
+
+\subsection{Member Function Documentation}
+\index{map@{map}!check\+Neighbour@{check\+Neighbour}}
+\index{check\+Neighbour@{check\+Neighbour}!map@{map}}
+\subsubsection[{\texorpdfstring{check\+Neighbour(int, int, int)}{checkNeighbour(int, int, int)}}]{\setlength{\rightskip}{0pt plus 5cm}bool map\+::check\+Neighbour (
+\begin{DoxyParamCaption}
+\item[{int}]{x\+Point, }
+\item[{int}]{y\+Point, }
+\item[{int}]{mode}
+\end{DoxyParamCaption}
+)}\hypertarget{classmap_a5e55d5c21318b0036147b9ea558c6983}{}\label{classmap_a5e55d5c21318b0036147b9ea558c6983}
+
+
+Function to check if the neighbour\textquotesingle{}s grid value. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em X} & coordinate of grid \\
+\hline
+{\em Y} & coordinate of grid \\
+\hline
+{\em Value} & to be checked \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Check 
+\end{DoxyReturn}
+
+
+Definition at line 124 of file map.\+cpp.
+
+
+
+References grid.
+
+
+
+Referenced by frontier\+Search(), and T\+E\+S\+T().
+
+\index{map@{map}!compute\+Frontier\+Centroid@{compute\+Frontier\+Centroid}}
+\index{compute\+Frontier\+Centroid@{compute\+Frontier\+Centroid}!map@{map}}
+\subsubsection[{\texorpdfstring{compute\+Frontier\+Centroid(const std\+::queue$<$ std\+::vector$<$ int $>$$>$ \&)}{computeFrontierCentroid(const std::queue< std::vector< int >> &)}}]{\setlength{\rightskip}{0pt plus 5cm}std\+::vector$<$ int $>$ map\+::compute\+Frontier\+Centroid (
+\begin{DoxyParamCaption}
+\item[{const std\+::queue$<$ std\+::vector$<$ int $>$$>$ \&}]{q}
+\end{DoxyParamCaption}
+)}\hypertarget{classmap_ad07d469282f85b48d181e530a886b335}{}\label{classmap_ad07d469282f85b48d181e530a886b335}
+
+
+Function to compute the centroid of the frontier. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em Frontier} & Queue containing the centroid coordinates \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Centroid point 
+\end{DoxyReturn}
+
+
+Definition at line 173 of file map.\+cpp.
+
+
+
+References nearest().
+
+
+
+Referenced by frontier\+Search(), and T\+E\+S\+T().
+
+
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=339pt]{classmap_ad07d469282f85b48d181e530a886b335_cgraph}
+\end{center}
+\end{figure}
+
+
+\index{map@{map}!frontier\+Search@{frontier\+Search}}
+\index{frontier\+Search@{frontier\+Search}!map@{map}}
+\subsubsection[{\texorpdfstring{frontier\+Search(int, int)}{frontierSearch(int, int)}}]{\setlength{\rightskip}{0pt plus 5cm}void map\+::frontier\+Search (
+\begin{DoxyParamCaption}
+\item[{int}]{height, }
+\item[{int}]{width}
+\end{DoxyParamCaption}
+)}\hypertarget{classmap_acaa7a0726870c1d08c75b3f84caa298b}{}\label{classmap_acaa7a0726870c1d08c75b3f84caa298b}
+
+
+Function to search frontiers in the map. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em X} & coordinate of grid \\
+\hline
+{\em Y} & coordinate of grid \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+none 
+\end{DoxyReturn}
+
+
+Definition at line 195 of file map.\+cpp.
+
+
+
+References centroid\+Queue, check\+Neighbour(), B\+F\+S\+::compute\+B\+F\+S(), compute\+Frontier\+Centroid(), explored, frontier\+Queue, grid, and map().
+
+
+
+Referenced by main(), and T\+E\+S\+T().
+
+
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classmap_acaa7a0726870c1d08c75b3f84caa298b_cgraph}
+\end{center}
+\end{figure}
+
+
+\index{map@{map}!get\+Centroid\+Size@{get\+Centroid\+Size}}
+\index{get\+Centroid\+Size@{get\+Centroid\+Size}!map@{map}}
+\subsubsection[{\texorpdfstring{get\+Centroid\+Size()}{getCentroidSize()}}]{\setlength{\rightskip}{0pt plus 5cm}int map\+::get\+Centroid\+Size (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\hypertarget{classmap_af9092b505e0d7f793322c7a481e3ca88}{}\label{classmap_af9092b505e0d7f793322c7a481e3ca88}
+
+
+Function to return the size of centroid queue. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em None} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+centroid size 
+\end{DoxyReturn}
+
+
+Definition at line 120 of file map.\+cpp.
+
+
+
+References centroid\+Queue.
+
+
+
+Referenced by T\+E\+S\+T().
+
+\index{map@{map}!get\+Grid\+Value@{get\+Grid\+Value}}
+\index{get\+Grid\+Value@{get\+Grid\+Value}!map@{map}}
+\subsubsection[{\texorpdfstring{get\+Grid\+Value(int, int)}{getGridValue(int, int)}}]{\setlength{\rightskip}{0pt plus 5cm}int map\+::get\+Grid\+Value (
+\begin{DoxyParamCaption}
+\item[{int}]{x, }
+\item[{int}]{y}
+\end{DoxyParamCaption}
+)}\hypertarget{classmap_a696bcdd2197355d1ff65e6fdf90cad46}{}\label{classmap_a696bcdd2197355d1ff65e6fdf90cad46}
+
+
+Function to return the grid value. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em X} & coordinate \\
+\hline
+{\em Y} & coordinate \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Grid value 
+\end{DoxyReturn}
+
+
+Definition at line 108 of file map.\+cpp.
+
+
+
+References grid.
+
+
+
+Referenced by explore\+::find\+Obstacle\+Free\+Neighbours(), and T\+E\+S\+T().
+
+\index{map@{map}!get\+Resolution@{get\+Resolution}}
+\index{get\+Resolution@{get\+Resolution}!map@{map}}
+\subsubsection[{\texorpdfstring{get\+Resolution()}{getResolution()}}]{\setlength{\rightskip}{0pt plus 5cm}float map\+::get\+Resolution (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\hypertarget{classmap_abd2282cb63fd166dbf2e90f78f610953}{}\label{classmap_abd2282cb63fd166dbf2e90f78f610953}
+
+
+Function to return resolution of the map. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em None} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+resolution of the map 
+\end{DoxyReturn}
+
+
+Definition at line 280 of file map.\+cpp.
+
+
+
+References map\+Resolution.
+
+
+
+Referenced by main(), and T\+E\+S\+T().
+
+\index{map@{map}!get\+Start@{get\+Start}}
+\index{get\+Start@{get\+Start}!map@{map}}
+\subsubsection[{\texorpdfstring{get\+Start()}{getStart()}}]{\setlength{\rightskip}{0pt plus 5cm}std\+::vector$<$ int $>$ map\+::get\+Start (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\hypertarget{classmap_a51047b6cd09491df72de1447c7c99431}{}\label{classmap_a51047b6cd09491df72de1447c7c99431}
+
+
+Function to return origin. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em None} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+origin vector 
+\end{DoxyReturn}
+
+
+Definition at line 276 of file map.\+cpp.
+
+
+
+References start.
+
+
+
+Referenced by main().
+
+\index{map@{map}!mapcallback@{mapcallback}}
+\index{mapcallback@{mapcallback}!map@{map}}
+\subsubsection[{\texorpdfstring{mapcallback(const nav\+\_\+msgs\+::\+Occupancy\+Grid \&msg)}{mapcallback(const nav_msgs::OccupancyGrid &msg)}}]{\setlength{\rightskip}{0pt plus 5cm}void map\+::mapcallback (
+\begin{DoxyParamCaption}
+\item[{const nav\+\_\+msgs\+::\+Occupancy\+Grid \&}]{msg}
+\end{DoxyParamCaption}
+)}\hypertarget{classmap_ad3a6b0b96fc74179816e7a4ed785fc4d}{}\label{classmap_ad3a6b0b96fc74179816e7a4ed785fc4d}
+
+
+Call\+Back function for the map subscriber. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em Contains} & the map in as occupancy grid in row major form \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+none 
+\end{DoxyReturn}
+
+
+Definition at line 76 of file map.\+cpp.
+
+
+
+References cols, grid, map\+Resolution, rows, and start.
+
+
+
+Referenced by request\+Map().
+
+\index{map@{map}!nearest@{nearest}}
+\index{nearest@{nearest}!map@{map}}
+\subsubsection[{\texorpdfstring{nearest(const std\+::queue$<$ std\+::vector$<$ int $>$$>$ \&, int, int)}{nearest(const std::queue< std::vector< int >> &, int, int)}}]{\setlength{\rightskip}{0pt plus 5cm}std\+::vector$<$ int $>$ map\+::nearest (
+\begin{DoxyParamCaption}
+\item[{const std\+::queue$<$ std\+::vector$<$ int $>$$>$ \&}]{q, }
+\item[{int}]{centroidx, }
+\item[{int}]{centroidy}
+\end{DoxyParamCaption}
+)}\hypertarget{classmap_a300d8aaac77b805595e640205aad1cb0}{}\label{classmap_a300d8aaac77b805595e640205aad1cb0}
+
+
+Function to find the point closest to computed centroid. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em Frontier} & Queue containing individual frontier points \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Point on frontier nearest to centroid 
+\end{DoxyReturn}
+
+
+Definition at line 148 of file map.\+cpp.
+
+
+
+Referenced by compute\+Frontier\+Centroid(), and T\+E\+S\+T().
+
+\index{map@{map}!nearest\+Centroid@{nearest\+Centroid}}
+\index{nearest\+Centroid@{nearest\+Centroid}!map@{map}}
+\subsubsection[{\texorpdfstring{nearest\+Centroid(int, int)}{nearestCentroid(int, int)}}]{\setlength{\rightskip}{0pt plus 5cm}std\+::vector$<$ int $>$ map\+::nearest\+Centroid (
+\begin{DoxyParamCaption}
+\item[{int}]{startX, }
+\item[{int}]{startY}
+\end{DoxyParamCaption}
+)}\hypertarget{classmap_a69743a83eb45ec5cef3fbc07aae26427}{}\label{classmap_a69743a83eb45ec5cef3fbc07aae26427}
+
+
+Function to find the point closest to computed centroid. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em Frontier} & Queue containing individual frontier points \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Point on frontier nearest to centroid 
+\end{DoxyReturn}
+
+
+Definition at line 248 of file map.\+cpp.
+
+
+
+References centroid\+Queue.
+
+
+
+Referenced by main().
+
+\index{map@{map}!request\+Map@{request\+Map}}
+\index{request\+Map@{request\+Map}!map@{map}}
+\subsubsection[{\texorpdfstring{request\+Map(ros\+::\+Node\+Handle \&)}{requestMap(ros::NodeHandle &)}}]{\setlength{\rightskip}{0pt plus 5cm}bool map\+::request\+Map (
+\begin{DoxyParamCaption}
+\item[{ros\+::\+Node\+Handle \&}]{nh}
+\end{DoxyParamCaption}
+)}\hypertarget{classmap_ad0c8afa9f68ede5257f5b7b2d33b093f}{}\label{classmap_ad0c8afa9f68ede5257f5b7b2d33b093f}
+
+
+Function to request map from gmapping node. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em Node} & handle \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Check if map is received 
+\end{DoxyReturn}
+
+
+Definition at line 70 of file map.\+cpp.
+
+
+
+References mapcallback(), and O\+G\+M\+\_\+subscriber.
+
+
+
+Referenced by main(), and T\+E\+S\+T().
+
+
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=304pt]{classmap_ad0c8afa9f68ede5257f5b7b2d33b093f_cgraph}
+\end{center}
+\end{figure}
+
+
+\index{map@{map}!return\+Cols@{return\+Cols}}
+\index{return\+Cols@{return\+Cols}!map@{map}}
+\subsubsection[{\texorpdfstring{return\+Cols()}{returnCols()}}]{\setlength{\rightskip}{0pt plus 5cm}int map\+::return\+Cols (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\hypertarget{classmap_abffb3a9e6f9e18a73695b62e42d0811c}{}\label{classmap_abffb3a9e6f9e18a73695b62e42d0811c}
+
+
+Function to return coloumn size. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em None} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+coloumn size 
+\end{DoxyReturn}
+
+
+Definition at line 116 of file map.\+cpp.
+
+
+
+References cols.
+
+
+
+Referenced by explore\+::compute\+Shortest\+Path(), explore\+::find\+Obstacle\+Free\+Neighbours(), main(), explore\+::navigate(), sensor\+::sensor(), and T\+E\+S\+T().
+
+\index{map@{map}!return\+Rows@{return\+Rows}}
+\index{return\+Rows@{return\+Rows}!map@{map}}
+\subsubsection[{\texorpdfstring{return\+Rows()}{returnRows()}}]{\setlength{\rightskip}{0pt plus 5cm}int map\+::return\+Rows (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\hypertarget{classmap_a665740b6cec1d2fac63bf1a9985e9628}{}\label{classmap_a665740b6cec1d2fac63bf1a9985e9628}
+
+
+Function to return row size. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em None} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+row size 
+\end{DoxyReturn}
+
+
+Definition at line 112 of file map.\+cpp.
+
+
+
+References rows.
+
+
+
+Referenced by explore\+::compute\+Shortest\+Path(), explore\+::find\+Obstacle\+Free\+Neighbours(), main(), explore\+::navigate(), sensor\+::sensor(), and T\+E\+S\+T().
+
+
+
+\subsection{Member Data Documentation}
+\index{map@{map}!centroid\+Queue@{centroid\+Queue}}
+\index{centroid\+Queue@{centroid\+Queue}!map@{map}}
+\subsubsection[{\texorpdfstring{centroid\+Queue}{centroidQueue}}]{\setlength{\rightskip}{0pt plus 5cm}std\+::queue$<$std\+::vector$<$int$>$ $>$ map\+::centroid\+Queue\hspace{0.3cm}{\ttfamily [private]}}\hypertarget{classmap_a8fe868100933bfd68b502b68d42f1883}{}\label{classmap_a8fe868100933bfd68b502b68d42f1883}
+
+
+Definition at line 66 of file map.\+hpp.
+
+
+
+Referenced by frontier\+Search(), get\+Centroid\+Size(), and nearest\+Centroid().
+
+\index{map@{map}!cols@{cols}}
+\index{cols@{cols}!map@{map}}
+\subsubsection[{\texorpdfstring{cols}{cols}}]{\setlength{\rightskip}{0pt plus 5cm}int map\+::cols\hspace{0.3cm}{\ttfamily [private]}}\hypertarget{classmap_ad82f9850ab232d78d0cac14c5e6a752f}{}\label{classmap_ad82f9850ab232d78d0cac14c5e6a752f}
+
+
+Definition at line 69 of file map.\+hpp.
+
+
+
+Referenced by map(), mapcallback(), and return\+Cols().
+
+\index{map@{map}!explored@{explored}}
+\index{explored@{explored}!map@{map}}
+\subsubsection[{\texorpdfstring{explored}{explored}}]{\setlength{\rightskip}{0pt plus 5cm}std\+::queue$<$std\+::vector$<$int$>$ $>$ map\+::explored\hspace{0.3cm}{\ttfamily [private]}}\hypertarget{classmap_ad8a2f40c1520dd9f0f5337abbf81e64f}{}\label{classmap_ad8a2f40c1520dd9f0f5337abbf81e64f}
+
+
+Definition at line 67 of file map.\+hpp.
+
+
+
+Referenced by frontier\+Search().
+
+\index{map@{map}!frontier\+Queue@{frontier\+Queue}}
+\index{frontier\+Queue@{frontier\+Queue}!map@{map}}
+\subsubsection[{\texorpdfstring{frontier\+Queue}{frontierQueue}}]{\setlength{\rightskip}{0pt plus 5cm}std\+::queue$<$std\+::vector$<$int$>$ $>$ map\+::frontier\+Queue\hspace{0.3cm}{\ttfamily [private]}}\hypertarget{classmap_ad3683241c11549fa2888eadf3465857f}{}\label{classmap_ad3683241c11549fa2888eadf3465857f}
+
+
+Definition at line 65 of file map.\+hpp.
+
+
+
+Referenced by frontier\+Search().
+
+\index{map@{map}!grid@{grid}}
+\index{grid@{grid}!map@{map}}
+\subsubsection[{\texorpdfstring{grid}{grid}}]{\setlength{\rightskip}{0pt plus 5cm}std\+::vector$<$std\+::vector$<$int$>$ $>$ map\+::grid\hspace{0.3cm}{\ttfamily [private]}}\hypertarget{classmap_a43036b0bcee6beeb4e8f4dfc5019e5fb}{}\label{classmap_a43036b0bcee6beeb4e8f4dfc5019e5fb}
+
+
+Definition at line 68 of file map.\+hpp.
+
+
+
+Referenced by check\+Neighbour(), frontier\+Search(), get\+Grid\+Value(), map(), and mapcallback().
+
+\index{map@{map}!map\+Resolution@{map\+Resolution}}
+\index{map\+Resolution@{map\+Resolution}!map@{map}}
+\subsubsection[{\texorpdfstring{map\+Resolution}{mapResolution}}]{\setlength{\rightskip}{0pt plus 5cm}float map\+::map\+Resolution\hspace{0.3cm}{\ttfamily [private]}}\hypertarget{classmap_ab2c38de30b06b80ec0a6ce646056d33a}{}\label{classmap_ab2c38de30b06b80ec0a6ce646056d33a}
+
+
+Definition at line 70 of file map.\+hpp.
+
+
+
+Referenced by get\+Resolution(), map(), and mapcallback().
+
+\index{map@{map}!O\+G\+M\+\_\+subscriber@{O\+G\+M\+\_\+subscriber}}
+\index{O\+G\+M\+\_\+subscriber@{O\+G\+M\+\_\+subscriber}!map@{map}}
+\subsubsection[{\texorpdfstring{O\+G\+M\+\_\+subscriber}{OGM_subscriber}}]{\setlength{\rightskip}{0pt plus 5cm}ros\+::\+Subscriber map\+::\+O\+G\+M\+\_\+subscriber\hspace{0.3cm}{\ttfamily [private]}}\hypertarget{classmap_ae40cfd9b303640dfc7a56e198056d2a0}{}\label{classmap_ae40cfd9b303640dfc7a56e198056d2a0}
+
+
+Definition at line 71 of file map.\+hpp.
+
+
+
+Referenced by request\+Map().
+
+\index{map@{map}!rows@{rows}}
+\index{rows@{rows}!map@{map}}
+\subsubsection[{\texorpdfstring{rows}{rows}}]{\setlength{\rightskip}{0pt plus 5cm}int map\+::rows\hspace{0.3cm}{\ttfamily [private]}}\hypertarget{classmap_a2ee828fe96a115fe070e8ff8eea7b488}{}\label{classmap_a2ee828fe96a115fe070e8ff8eea7b488}
+
+
+Definition at line 69 of file map.\+hpp.
+
+
+
+Referenced by map(), mapcallback(), and return\+Rows().
+
+\index{map@{map}!start@{start}}
+\index{start@{start}!map@{map}}
+\subsubsection[{\texorpdfstring{start}{start}}]{\setlength{\rightskip}{0pt plus 5cm}std\+::vector$<$int$>$ map\+::start}\hypertarget{classmap_a73ea3c7b79de5a8b5733b7babc21e68b}{}\label{classmap_a73ea3c7b79de5a8b5733b7babc21e68b}
+
+
+Definition at line 81 of file map.\+hpp.
+
+
+
+Referenced by get\+Start(), and mapcallback().
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+include/\hyperlink{map_8hpp}{map.\+hpp}\item 
+src/\hyperlink{map_8cpp}{map.\+cpp}\end{DoxyCompactItemize}
