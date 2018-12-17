@@ -1,0 +1,15 @@
+Done processing src/main.cpp
+Done processing src/map.cpp
+Done processing src/explore.cpp
+Done processing src/sensor.cpp
+Done processing src/BFS.cpp
+Done processing include/map.hpp
+Done processing include/BFS.hpp
+Done processing include/sensor.hpp
+Done processing include/explore.hpp
+Done processing test/main.cpp
+Done processing test/testBFS.cpp
+Done processing test/testMapGen.cpp
+Done processing test/testSensor.cpp
+Done processing test/testExplore.cpp
+
